@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#022c22" />
+            <stop offset="40%" stop-color="#064e3b" />
+            <stop offset="100%" stop-color="#060b09" />
+        </linearGradient>
+
+        <!-- Right Side Glow -->
+        <radialGradient id="radial-glow" cx="70%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+        </radialGradient>
+
+        <!-- Inter Font Import -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&amp;display=swap');
+            .text-title {
+                font-family: 'Inter', -apple-system, sans-serif;
+                font-weight: 900;
+                fill: #ffffff;
+                letter-spacing: 0.03em;
+            }
+            .text-tagline {
+                font-family: 'Inter', -apple-system, sans-serif;
+                font-weight: 700;
+                fill: rgba(255, 255, 255, 0.85);
+            }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="500" fill="url(#bg-gradient)" />
+    <rect width="800" height="500" fill="url(#radial-glow)" />
+
+    <!-- Left Side: Phone Mockup -->
+    <g transform="translate(10, 0)">
+        <!-- Phone Outer Frame -->
+        <rect x="110" y="70" width="210" height="360" rx="30" fill="#050e0c" stroke="#10b981" stroke-width="2.5" />
+        
+        <!-- Phone Screen Glass (Inner Shadow & Darker Green Background) -->
+        <rect x="118" y="78" width="194" height="344" rx="24" fill="#0b1714" />
+        
+        <!-- Notch / Speaker -->
+        <rect x="175" y="86" width="80" height="12" rx="6" fill="#050e0c" />
+        
+        <!-- Screen Contents -->
+        <!-- Card 1 (Active) -->
+        <g transform="translate(130, 118)">
+            <!-- Card Outer -->
+            <rect x="0" y="0" width="170" height="74" rx="14" fill="#0e2a22" fill-opacity="0.6" stroke="#10b981" stroke-width="1.5" />
+            <!-- Square Icon Placeholder -->
+            <rect x="14" y="14" width="46" height="46" rx="8" fill="#10b981" fill-opacity="0.15" />
+            <!-- Text Lines -->
+            <rect x="72" y="24" width="80" height="6" rx="3" fill="#10b981" fill-opacity="0.6" />
+            <rect x="72" y="38" width="60" height="6" rx="3" fill="#10b981" fill-opacity="0.35" />
+            <rect x="72" y="52" width="40" height="4" rx="2" fill="#10b981" fill-opacity="0.2" />
+        </g>
+        
+        <!-- Card 2 (Inactive) -->
+        <g transform="translate(130, 208)">
+            <!-- Card Outer -->
+            <rect x="0" y="0" width="170" height="74" rx="14" fill="none" stroke="#10b981" stroke-width="1" stroke-opacity="0.25" />
+            <!-- Square Icon Placeholder -->
+            <rect x="14" y="14" width="46" height="46" rx="8" fill="#10b981" fill-opacity="0.05" />
+            <!-- Text Lines -->
+            <rect x="72" y="28" width="80" height="6" rx="3" fill="#ffffff" fill-opacity="0.12" />
+            <rect x="72" y="44" width="50" height="6" rx="3" fill="#ffffff" fill-opacity="0.06" />
+        </g>
+
+        <!-- Card 3 (Inactive) -->
+        <g transform="translate(130, 298)">
+            <!-- Card Outer -->
+            <rect x="0" y="0" width="170" height="74" rx="14" fill="none" stroke="#10b981" stroke-width="1" stroke-opacity="0.25" />
+            <!-- Square Icon Placeholder -->
+            <rect x="14" y="14" width="46" height="46" rx="8" fill="#10b981" fill-opacity="0.05" />
+            <!-- Text Lines -->
+            <rect x="72" y="28" width="80" height="6" rx="3" fill="#ffffff" fill-opacity="0.12" />
+            <rect x="72" y="44" width="50" height="6" rx="3" fill="#ffffff" fill-opacity="0.06" />
+        </g>
+
+        <!-- Bottom Navigation Bar (Figma style indicators) -->
+        <g transform="translate(150, 396)">
+            <!-- Indicator 1 (Active) -->
+            <rect x="0" y="0" width="28" height="5" rx="2.5" fill="#10b981" />
+            <!-- Indicator 2 -->
+            <rect x="36" y="0" width="24" height="5" rx="2.5" fill="#10b981" fill-opacity="0.2" />
+            <!-- Indicator 3 -->
+            <rect x="68" y="0" width="24" height="5" rx="2.5" fill="#10b981" fill-opacity="0.2" />
+            <!-- Indicator 4 -->
+            <rect x="100" y="0" width="24" height="5" rx="2.5" fill="#10b981" fill-opacity="0.2" />
+        </g>
+    </g>
+
+    <!-- Right Side: App Icon & Typography -->
+    <g transform="translate(390, 0)">
+        <!-- App Icon -->
+        <g transform="translate(0, 120)">
+            <!-- Icon Background / Box -->
+            <rect width="84" height="84" rx="22" fill="#0c251e" fill-opacity="0.8" stroke="#10b981" stroke-width="3" />
+            
+            <!-- Coffee / Steam Cup Vector Path -->
+            <g transform="translate(14, 14)">
+                <!-- Steam lines -->
+                <path d="M22,6 Q22,11 25,11 Q28,11 28,16" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                <path d="M28,6 Q28,11 31,11 Q34,11 34,16" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                <path d="M16,6 Q16,11 19,11 Q22,11 22,16" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                
+                <!-- Cup Bowl -->
+                <path d="M11,22 H37 C37,36 31,42 24,42 C17,42 11,36 11,22 Z" fill="none" stroke="#10b981" stroke-width="3.5" stroke-linejoin="round" />
+                
+                <!-- Cup Handle -->
+                <path d="M37,25 H42 C46,25 46,33 42,33 H37" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" />
+            </g>
+        </g>
+
+        <!-- Typography -->
+        <text x="0" y="275" class="text-title" font-size="52">NUTRIDASH</text>
+        <text x="2" y="325" class="text-tagline" font-size="23.5">Eat Smart. Live Better.</text>
+        
+        <!-- Accent Line -->
+        <rect x="2" y="360" width="80" height="5" rx="2.5" fill="#10b981" />
+    </g>
+</svg>

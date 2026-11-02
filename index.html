@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Jamal | UI/UX Designer</title>
+    <meta name="description" content="Mohammed Jamal, UI/UX designer in Chennai. Four years and 50+ enterprise intranet portals: turning complex internal tools into things people actually use.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Just+Me+Again+Down+Here&family=Handjet:wght@100..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/crayon.css?v=16">
+</head>
+<body>
+    <a href="#main" class="skip">Skip to content</a>
+
+    <div class="intro" id="intro" aria-hidden="true">
+        <div class="intro-chip"><span id="introText"></span><span class="caret"></span></div>
+    </div>
+
+    <!-- Nav -->
+    <header class="nav">
+        <div class="nav-left">
+            <a href="#top" class="nav-logo" aria-label="Mohammed Jamal, home">
+                <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#ff4d8d" stroke="#191510" stroke-width="2.5"/><circle cx="14" cy="16" r="2.4" fill="#191510"/><circle cx="26" cy="16" r="2.4" fill="#191510"/><path d="M12.5 23.5c2 4 13 4 15 0" fill="none" stroke="#191510" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </a>
+            <ul class="nav-tabs">
+                <li><a href="#top" class="active" data-spy="top"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg><span>Home</span></a></li>
+                <li><a href="#about" data-spy="about"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7.5" r="4.5"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg><span>About</span></a></li>
+                <li><a href="#work" data-spy="work"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg><span>Case Studies</span></a></li>
+                <li><a href="#approach" data-spy="approach"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 22 12 12 22 2 12z"/></svg><span>Approach</span></a></li>
+                <li><a href="#writing" data-spy="writing"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16zM16.5 3.5l4 4 1-1a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0z"/></svg><span>Writing</span></a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a class="social y" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+            <a class="social p" href="https://www.instagram.com/jamal_bikon/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+            <a class="social g" href="assets/MohammedJamal_Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg></a>
+            <a class="btn btn-paper nav-contact" href="#contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11"/></svg>Contact</a>
+            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span></button>
+        </div>
+    </header>
+    <nav class="mob-menu" id="mobMenu" aria-label="Mobile">
+        <a href="#about">About</a>
+        <a href="#work">Case Studies</a>
+        <a href="#approach">Approach</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+        <div class="mob-socials">
+            <a class="social y" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+            <a class="social p" href="https://www.instagram.com/jamal_bikon/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a class="social g" href="assets/MohammedJamal_Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg></a>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" id="top">
+            <div class="name-stage neg-zone">
+                <span class="my-name hand">my name is</span>
+                <div class="select-box">
+                    <span class="handle h1"></span><span class="handle h2"></span><span class="handle h3"></span><span class="handle h4"></span>
+                    <h1 class="hero-name pixel" aria-label="Jamal"><span class="ch">J</span><span class="ch">A</span><span class="ch">M</span><span class="ch">A</span><span class="ch">L</span></h1>
+                    <span class="dims" aria-hidden="true">Mohammed Jamal</span>
+                </div>
+                <span class="sticky s1">Makes it clear</span>
+                <span class="sticky s2">50+ intranets</span>
+                <span class="sticky hand-note s3">UI/UX Designer</span>
+                <span class="sticky hand-note s4">Chennai, IN</span>
+                <svg class="arrow a1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 42c8-4 20-14 30-30"/><path d="M26 12h10v10"/></svg>
+                <svg class="arrow a2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 42c8-4 20-14 30-30"/><path d="M26 12h10v10"/></svg>
+                <span class="negative" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </div>
+
+            <p class="status"><span class="dot"></span>Open to full-time roles</p>
+            <p class="hero-line">I turn complex <svg class="spin-icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#16b06a" stroke="#191510" stroke-width="2"/><circle cx="20" cy="20" r="11" fill="#fdfdfb"/><circle cx="20" cy="20" r="5" fill="#16b06a"/><circle cx="14" cy="9" r="2.4" fill="#191510"/></svg> enterprise tools into things people <span class="hl">actually use</span> <svg class="spin-icon" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(0 20 20)"/><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(45 20 20)"/><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(90 20 20)"/><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(135 20 20)"/><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(180 20 20)"/><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(225 20 20)"/><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(270 20 20)"/><ellipse cx="20" cy="8" rx="4.6" ry="8" fill="#ff4d8d" transform="rotate(315 20 20)"/><circle cx="20" cy="20" r="4" fill="#191510"/></svg></p>
+            <p class="hero-sub">Four years inside the software nobody puts on a portfolio: the intranets, the dashboards, the forms people open every single morning.</p>
+            <div class="hero-ctas">
+                <a class="btn-cta" href="#work"><span class="cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>Read the work</a>
+                <a class="btn-cta ghost" href="assets/MohammedJamal_Resume.pdf" target="_blank" rel="noopener"><span class="cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></span>Resume (PDF)</a>
+            </div>
+
+            <div class="avatar left float"><img src="assets/profile.jpg" alt="" width="84" height="84"></div>
+            <div class="avatar right float slow"><img src="assets/photography/03.jpg" alt="" width="84" height="84"></div>
+        </section>
+
+        <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Enterprise UX</span><span class="star">✦</span><span>SharePoint intranets</span><span class="star">✦</span><span>Dashboards</span><span class="star">✦</span><span>Design systems</span><span class="star">✦</span><span>Figma</span><span class="star">✦</span><span>Power Apps</span><span class="star">✦</span><span>Research</span><span class="star">✦</span><span>Prototyping</span><span class="star">✦</span><span>Enterprise UX</span><span class="star">✦</span><span>SharePoint intranets</span><span class="star">✦</span><span>Dashboards</span><span class="star">✦</span><span>Design systems</span><span class="star">✦</span><span>Figma</span><span class="star">✦</span><span>Power Apps</span><span class="star">✦</span><span>Research</span><span class="star">✦</span><span>Prototyping</span><span class="star">✦</span></div></div>
+
+        <!-- About -->
+        <section class="sec about" id="about">
+            <span class="about-scribble hand">about me!</span>
+            <div class="wrap">
+                <div class="about-grid">
+                    <figure class="polaroid p-left rv">
+                        <span class="tape tl"></span>
+                        <img src="assets/profile_portrait.jpg" alt="Mohammed Jamal" width="640" height="800" loading="lazy">
+                        <figcaption>that's me</figcaption>
+                    </figure>
+                    <div class="about-copy rv">
+                        <h2 class="boxed-title">what's up</h2>
+                        <p class="hand">Most enterprise software isn't badly designed. It's <span class="hl">undesigned</span>, built feature by feature until nobody remembers what it was for.</p>
+                        <p class="hand">I've spent four years at SharePoint Designs fixing exactly that, across <span class="hl pink">fifty-plus intranet portals</span>. The fix is rarely a new feature. It's a clearer sentence, a shorter path, and a screen that admits what it's <span class="hl mint">actually for</span>.</p>
+                    </div>
+                    <figure class="polaroid p-right rv">
+                        <span class="tape tr pink"></span>
+                        <img src="assets/photography/01.jpg" alt="Street photograph from Jamal's travels" width="768" height="1024" loading="lazy">
+                        <figcaption>off the clock</figcaption>
+                    </figure>
+                </div>
+
+                <div class="stats">
+                    <div class="stat rv"><span class="tape tc"></span><div class="stat-num pixel">4+</div><div class="stat-label">years designing enterprise products</div></div>
+                    <div class="stat rv"><span class="tape tc yellow"></span><div class="stat-num pixel">50+</div><div class="stat-label">intranet portals shipped to real teams</div></div>
+                    <div class="stat rv"><span class="tape tc pink"></span><div class="stat-num pixel">03</div><div class="stat-label">case studies written end to end</div></div>
+                </div>
+
+                <ul class="chips" aria-label="Skills">
+                    <li class="chip c1"><span>UI Design</span><i aria-hidden="true">✏️</i></li>
+                    <li class="chip c2"><span>UX Research</span><i aria-hidden="true">🔍</i></li>
+                    <li class="chip c3"><span>Prototyping</span><i aria-hidden="true">🧩</i></li>
+                    <li class="chip c4"><span>Design Systems</span><i aria-hidden="true">📐</i></li>
+                    <li class="chip c5"><span>SharePoint</span><i aria-hidden="true">🗂️</i></li>
+                    <li class="chip c6"><span>Accessibility</span><i aria-hidden="true">👀</i></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Work -->
+        <section class="sec work" id="work">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="scribble hand">explore my work!</span>
+                    <h2 class="pixel">Featured<br>Works</h2>
+                    <p class="tape-note">Three problems, told properly: the research, the wrong turns, and the decisions I'd defend.</p>
+                </div>
+
+                <div class="work-stack">
+                    <article class="folder f-nutri" style="--i:0">
+                        <div class="folder-tab">+ Project 01</div>
+                        <div class="folder-body">
+                            <div>
+                                <div class="folder-meta"><span class="dot"></span>Mobile app · Case study</div>
+                                <h3>NutriDash</h3>
+                                <p>People order food they can't see the contents of. NutriDash puts the ingredients back in front of the person eating them, without turning dinner into a spreadsheet.</p>
+                                <a class="link-arrow" href="nutridash.html">View case study ↗</a>
+                                <div class="folder-tags"><span>UI/UX</span><span>Health</span><span>Food delivery</span></div>
+                            </div>
+                            <div class="folder-shot">
+                                <span class="tape tl mint"></span><span class="tape tr mint"></span>
+                                <div class="frame"><img src="assets/nutridash/nutridash_banner.svg" alt="NutriDash app screens" loading="lazy"></div>
+                            </div>
+                        </div>
+                        <a class="cover" href="nutridash.html" tabindex="-1" aria-hidden="true"></a>
+                    </article>
+
+                    <article class="folder f-fuel" style="--i:1">
+                        <div class="folder-tab">+ Project 02</div>
+                        <div class="folder-body">
+                            <div>
+                                <div class="folder-meta"><span class="dot"></span>Mobile app · Case study</div>
+                                <h3>Fuel Buddy</h3>
+                                <p>Fuel prices change daily and nobody knows where the cheap pump is until they've driven past it. A small app for a decision people make weekly and think about for ten seconds.</p>
+                                <a class="link-arrow" href="fuel-buddy.html">View case study ↗</a>
+                                <div class="folder-tags"><span>UI/UX</span><span>Mobility</span><span>Maps</span></div>
+                            </div>
+                            <div class="folder-shot">
+                                <span class="tape tl"></span><span class="tape tr"></span>
+                                <div class="frame"><img src="assets/fuel-buddy/fuel_buddy_banner.png" alt="Fuel Buddy app screens" loading="lazy"></div>
+                            </div>
+                        </div>
+                        <a class="cover" href="fuel-buddy.html" tabindex="-1" aria-hidden="true"></a>
+                    </article>
+
+                    <article class="folder f-doc" style="--i:2">
+                        <div class="folder-tab">+ Project 03</div>
+                        <div class="folder-body">
+                            <div>
+                                <div class="folder-meta"><span class="dot"></span>Web app · Case study</div>
+                                <h3>DocVault AI</h3>
+                                <p>The closest to my day job: thousands of documents, no shared vocabulary for finding them. An AI layer is only useful here if it earns trust faster than the search bar it replaces.</p>
+                                <a class="link-arrow" href="docvault.html">View case study ↗</a>
+                                <div class="folder-tags"><span>UI/UX</span><span>SharePoint</span><span>AI</span></div>
+                            </div>
+                            <div class="folder-shot">
+                                <span class="tape tl yellow"></span><span class="tape tr yellow"></span>
+                                <div class="frame"><img src="assets/docvault/docvault_card.jpg" alt="DocVault AI dashboard" loading="lazy"></div>
+                            </div>
+                        </div>
+                        <a class="cover" href="docvault.html" tabindex="-1" aria-hidden="true"></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach -->
+        <section class="sec approach" id="approach">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="scribble hand">how I work</span>
+                    <h2 class="pixel">Four moves</h2>
+                    <p class="tape-note">Not a methodology I read about. Just the order that stops me designing the wrong thing beautifully.</p>
+                </div>
+                <ol class="notes" role="list">
+                    <li class="note rv"><span class="tape tc"></span><div class="note-num pixel">01</div><h3>Listen</h3><p>Talk to the people who have to live in the thing. Stakeholders describe the system they wanted; users describe the one they got.</p></li>
+                    <li class="note rv"><span class="tape tc yellow"></span><div class="note-num pixel">02</div><h3>Frame</h3><p>Write the problem in one sentence everyone can agree on. If it takes a paragraph, we don't understand it yet.</p></li>
+                    <li class="note rv"><span class="tape tc pink"></span><div class="note-num pixel">03</div><h3>Design</h3><p>Flows before screens, systems before pixels. Components a developer can reuse without asking me what the spacing was.</p></li>
+                    <li class="note rv"><span class="tape tc mint"></span><div class="note-num pixel">04</div><h3>Ship</h3><p>Stay through the build. The handoff isn't a file. It's the fifty small answers that come after it.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Practice -->
+        <section class="sec practice" id="practice">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="scribble hand">where the reps came from</span>
+                    <h2 class="pixel">The Practice</h2>
+                </div>
+                <div class="practice-grid">
+                    <article class="job rv">
+                        <span class="job-when mono">Nov 2022 → Present</span>
+                        <h3>SharePoint Designs</h3>
+                        <div class="role">UI/UX Designer</div>
+                        <p>Designed and delivered over 50 intranet portals with a focus on usability, accessibility and engagement, working alongside developers, product managers and stakeholders to keep the design intact from the first workshop to the last build.</p>
+                        <div class="folder-tags"><span>UI Design</span><span>UX Research</span><span>Prototyping</span><span>Design Systems</span><span>SharePoint</span><span>Accessibility</span></div>
+                    </article>
+                    <div class="toolbox rv">
+                        <h3>tools on my desk</h3>
+                        <ul class="tools" role="list">
+                            <li class="tool"><span class="tape tc"></span><img src="assets/logos/figma_logo.png" alt="" loading="lazy">Figma</li>
+                            <li class="tool"><span class="tape tc pink"></span><img src="assets/logos/framer_logo.png" alt="" loading="lazy">Framer</li>
+                            <li class="tool"><span class="tape tc yellow"></span><img src="assets/logos/webflow_logo.png" alt="" loading="lazy">Webflow</li>
+                            <li class="tool"><span class="tape tc mint"></span><img src="assets/logos/photoshop_logo.png" alt="" loading="lazy">Photoshop</li>
+                            <li class="tool"><span class="tape tc"></span><img src="assets/logos/adobe_illustrator_logo.png" alt="" loading="lazy">Illustrator</li>
+                            <li class="tool"><span class="tape tc pink"></span><img src="assets/logos/adobe_xd_logo.png" alt="" loading="lazy">Adobe XD</li>
+                            <li class="tool"><span class="tape tc yellow"></span><img src="assets/logos/miro_logo.png" alt="" loading="lazy">Miro</li>
+                            <li class="tool"><span class="tape tc mint"></span><img src="assets/logos/notion_logo.png" alt="" loading="lazy">Notion</li>
+                            <li class="tool"><span class="tape tc"></span><img src="assets/logos/adobe_lightroom_logo.png" alt="" loading="lazy">Lightroom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Writing -->
+        <section class="sec writing" id="writing">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="scribble hand">thinking out loud</span>
+                    <h2 class="pixel">Writing</h2>
+                    <p class="tape-note">Notes from the work: mostly on branding intranets, and the small details that decide whether people trust an interface.</p>
+                </div>
+                <div class="cards3">
+                    <a class="index-card rv" href="https://www.sharepointdesigns.com/blog/sharepoint-intranet-branding-guide" target="_blank" rel="noopener">
+                        <span class="tape tc"></span>
+                        <span class="mono">May 2026 · 7 min</span>
+                        <h3>How to brand your SharePoint intranet: colours, fonts &amp; logo guide</h3>
+                        <p>Apply your primary colours to the site theme, get the logo into the header, and pick one font pairing you can hold across every page.</p>
+                        <span class="read">read it →</span>
+                    </a>
+                    <a class="index-card rv" href="https://www.sharepointdesigns.com/blog/7-design-secret-tips-to-spark-emotions" target="_blank" rel="noopener">
+                        <span class="tape tc pink"></span>
+                        <span class="mono">May 2024 · 5 min</span>
+                        <h3>7 design approaches to build stronger emotional engagement</h3>
+                        <p>Small, delightful moments shape how people feel about a product far more than the feature list does. Seven ways to earn them.</p>
+                        <span class="read">read it →</span>
+                    </a>
+                    <a class="index-card rv" href="https://www.sharepointdesigns.com/blog/a-designers-guide-to-cta-excellence" target="_blank" rel="noopener">
+                        <span class="tape tc mint"></span>
+                        <span class="mono">Dec 2023 · 6 min</span>
+                        <h3>Designing impactful CTAs: a designer's guide to call-to-action excellence</h3>
+                        <p>A CTA isn't decoration. It's the moment the interface asks for something, and where most products lose their nerve.</p>
+                        <span class="read">read it →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Field notes -->
+        <section class="sec field" id="field-notes">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="scribble hand">through my lens</span>
+                    <h2 class="pixel">Field Notes</h2>
+                    <p class="tape-note">I shoot street photography wherever I travel. Same instinct as the day job: watch what people actually do.</p>
+                </div>
+                <div class="wall">
+                    <figure class="polaroid rv"><img src="assets/photography/01.jpg" alt="Street photograph 1" loading="lazy"></figure>
+                    <figure class="polaroid rv"><img src="assets/photography/02.jpg" alt="Street photograph 2" loading="lazy"></figure>
+                    <figure class="polaroid rv"><img src="assets/photography/03.jpg" alt="Street photograph 3" loading="lazy"></figure>
+                    <figure class="polaroid rv"><img src="assets/photography/04.jpg" alt="Street photograph 4" loading="lazy"></figure>
+                    <figure class="polaroid rv"><img src="assets/photography/05.jpg" alt="Street photograph 5" loading="lazy"></figure>
+                    <figure class="polaroid rv"><img src="assets/photography/06.jpg" alt="Street photograph 6" loading="lazy"></figure>
+                </div>
+                <p class="wall-foot"><a href="https://www.instagram.com/jamal_bikon/" target="_blank" rel="noopener">more at @jamal_bikon ↗</a></p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="sec contact" id="contact">
+            <div class="wrap">
+                <svg class="smiley" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#f7c948" stroke="#191510" stroke-width="3"/><g class="blink"><rect x="38" y="38" width="9" height="20" rx="4.5" fill="#191510"/><rect x="73" y="38" width="9" height="20" rx="4.5" fill="#191510"/></g><circle cx="32" cy="72" r="8" fill="#ff8fb4" opacity=".7"/><circle cx="88" cy="72" r="8" fill="#ff8fb4" opacity=".7"/><path d="M36 74c8 18 40 18 48 0" fill="none" stroke="#191510" stroke-width="4.5" stroke-linecap="round"/></svg>
+                <div class="neg-zone talk"><h2 class="pixel">Let's talk</h2><span class="negative" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+                <p class="lead hand">Hiring for something complex? Tell me what your team is trying to fix. I read every message.</p>
+
+                <div class="contact-stage">
+                    <div class="me-card rv">
+                        <span class="tape tc pink"></span>
+                        <div class="who"><img src="assets/profile.jpg" alt="" width="36" height="36">Mohammed Jamal</div>
+                        <p>Looking for a full-time product or enterprise design role, especially one with the messy, unglamorous problems in it.</p>
+                    </div>
+                    <div class="big-card">
+                        <span class="tape tl"></span><span class="tape tr"></span>
+                        <p class="hand">let's make something clear together</p>
+                        <p class="pixel" aria-hidden="true">Contact</p>
+                        <a class="email" href="mailto:jamaluiux04@gmail.com">jamaluiux04@gmail.com</a>
+                        <div class="actions">
+                            <a class="btn btn-ink" href="mailto:jamaluiux04@gmail.com">Drop a line ↗</a>
+                            <a class="btn btn-paper" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener">LinkedIn</a>
+                            <a class="btn btn-paper" href="assets/MohammedJamal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-name pixel">Mohammed Jamal</div>
+                    <div class="footer-role mono">UI/UX Designer · Chennai</div>
+                </div>
+                <div class="footer-links">
+                    <nav class="mono" aria-label="Footer">
+                        <a href="#about">About</a>
+                        <a href="#work">Case Studies</a>
+                        <a href="#writing">Writing</a>
+                    </nav>
+                    <div class="socials">
+                        <a class="social y" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+                        <a class="social p" href="https://www.instagram.com/jamal_bikon/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+                        <a class="social g" href="mailto:jamaluiux04@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Mohammed Jamal</span>
+                <span class="made">designed &amp; built by hand ✦</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/crayon.js?v=16"></script>
+</body>
+</html>

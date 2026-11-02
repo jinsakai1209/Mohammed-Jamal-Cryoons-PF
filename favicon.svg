@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="12" fill="#050505"/>
+<g transform="translate(6,16)">
+<!-- M -->
+<path d="M0 32V0h5l8 16L21 0h5v32h-4.5V11L14.5 27h-3L4.5 11V32z" fill="#ffffff"/>
+<!-- J -->
+<path d="M36 32c-3.5 0-5.5-2-5.5-6h4.5c0 1.8.4 2.5 1.5 2.5s1.5-.7 1.5-2.5V0h5v26c0 4-2.5 6-7 6z" fill="#ffffff"/>
+</g>
+<!-- dot -->
+<circle cx="54" cy="46" r="3.5" fill="#7C3AED"/>
+</svg>

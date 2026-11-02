@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocVault AI - Case Study | Mohammed Jamal</title>
+    <meta name="description" content="UX case study for DocVault AI - an AI-powered SharePoint Document Management System designed end to end, from marketing landing page to full application UI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Just+Me+Again+Down+Here&family=Handjet:wght@100..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/case-study.css?v=3">
+    <style>
+        /* Override site-wide purple gradient tokens with DocVault blue */
+        :root { --gradient-1: #2563EB; --gradient-2: #1E40AF; }
+        [data-theme="dark"] { --gradient-1: #60A5FA; --gradient-2: #93C5FD; }
+
+        .cs-hero-title { color: #2563EB !important; }
+        [data-theme="dark"] .cs-hero-title { color: #60A5FA !important; }
+
+        /* Persona avatar gradient → blue */
+        .cs-persona-avatar {
+            background: linear-gradient(135deg, #2563EB, #1E40AF) !important;
+        }
+        [data-theme="dark"] .cs-persona-avatar {
+            background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+        }
+
+        /* Process pill badge gradient → blue */
+        .cs-process-badge {
+            background: linear-gradient(135deg, #2563EB, #1E40AF) !important;
+        }
+
+        /* Feature bar fill → blue */
+        .cs-feature-bar-fill {
+            background: #2563EB !important;
+        }
+
+        /* DocVault table highlight override */
+        .dv-table th.cs-table-highlight {
+            color: #1E3A8A !important;
+            background: #EFF6FF !important;
+            border-bottom: 2px solid #2563EB !important;
+        }
+        [data-theme="dark"] .dv-table th.cs-table-highlight {
+            color: #93C5FD !important;
+            background: rgba(37, 99, 235, 0.1) !important;
+            border-bottom: 2px solid #60A5FA !important;
+        }
+        .dv-table td.cs-table-highlight {
+            background: rgba(37, 99, 235, 0.03) !important;
+        }
+        [data-theme="dark"] .dv-table td.cs-table-highlight {
+            background: rgba(37, 99, 235, 0.06) !important;
+        }
+        .dv-table .cs-table-highlight .cell-status.yes {
+            background: rgba(37, 99, 235, 0.15);
+            color: #2563EB;
+            box-shadow: 0 0 12px rgba(37, 99, 235, 0.2);
+        }
+        [data-theme="dark"] .dv-table .cs-table-highlight .cell-status.yes {
+            background: rgba(96, 165, 250, 0.15);
+            color: #60A5FA;
+            box-shadow: 0 0 12px rgba(96, 165, 250, 0.2);
+        }
+
+        /* User flow cards */
+        .dv-flow-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 14px;
+            transition: background-color .4s, border-color .4s, transform .3s var(--ease);
+        }
+        .dv-flow-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--card-hover-border);
+            box-shadow: var(--card-hover-shadow);
+            background: var(--surface-hover);
+        }
+        .dv-flow-card h3 {
+            font-size: 1rem; font-weight: 700; margin: 0 0 4px 0;
+        }
+        .dv-flow-type {
+            font-size: .72rem; font-weight: 600; color: #2563EB;
+            margin-bottom: 14px; display: block;
+        }
+        [data-theme="dark"] .dv-flow-type { color: #60A5FA; }
+        .dv-flow-steps {
+            display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+        }
+        .dv-flow-step {
+            font-size: .72rem; color: var(--fg-2);
+            background: var(--pill-bg); padding: 5px 12px;
+            border-radius: 8px; border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        .dv-flow-arrow { color: var(--fg-3); font-size: .7rem; }
+
+        /* Landing page section cards */
+        .dv-landing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px; margin-top: 24px;
+        }
+        .dv-landing-card {
+            padding: 24px; border-radius: 14px;
+            background: var(--surface); border: 1px solid var(--border);
+            transition: background-color .4s, border-color .4s, transform .3s var(--ease);
+        }
+        .dv-landing-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--card-hover-border);
+            box-shadow: var(--card-hover-shadow);
+            background: var(--surface-hover);
+        }
+        .dv-landing-eyebrow {
+            font-size: .68rem; font-weight: 600; color: #2563EB;
+            margin-bottom: 6px; display: block;
+            text-transform: uppercase; letter-spacing: .04em;
+        }
+        [data-theme="dark"] .dv-landing-eyebrow { color: #60A5FA; }
+        .dv-landing-card h3 {
+            font-size: .95rem; font-weight: 700; margin: 0 0 8px 0;
+        }
+        .dv-landing-card p {
+            font-size: .8rem; color: var(--fg-2); line-height: 1.65; margin: 0;
+        }
+
+        /* Hero image (desktop mockup - wider) */
+        .dv-hero-image-wrap {
+            display: flex; justify-content: center; align-items: center;
+            margin-top: 56px; position: relative; width: 100%; gap: 24px;
+        }
+        .dv-hero-device {
+            transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+        }
+        .dv-hero-device img {
+            width: 380px; height: auto; display: block;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px -15px rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+        }
+        .dv-hero-device.left {
+            transform: rotate(-3deg) translateX(20px) scale(0.95);
+            z-index: 1; filter: brightness(0.85);
+        }
+        .dv-hero-device.right {
+            transform: rotate(3deg) translateX(-20px) scale(0.95);
+            z-index: 2; filter: brightness(0.95);
+        }
+        .dv-hero-image-wrap:hover .dv-hero-device.left {
+            transform: rotate(-1deg) translateX(-10px) scale(1);
+            filter: brightness(1); z-index: 3;
+        }
+        .dv-hero-image-wrap:hover .dv-hero-device.right {
+            transform: rotate(1deg) translateX(10px) scale(1);
+            filter: brightness(1);
+        }
+
+        @media (max-width: 768px) {
+            .dv-landing-grid { grid-template-columns: 1fr; }
+            .dv-hero-device img { width: 260px; }
+            .dv-hero-image-wrap { gap: 12px; }
+        }
+        @media (max-width: 480px) {
+            .dv-hero-device img { width: 180px; }
+        }
+
+        /* ====================================
+           Editorial pass - flatten DocVault
+           components to match the site language
+           ==================================== */
+        .dv-flow-card,
+        .dv-landing-grid,
+        .dv-table-wrap { margin-left: 116px; }
+
+        .dv-flow-card {
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            border-radius: 0;
+            padding: 26px 0;
+            margin-bottom: 0;
+        }
+        .dv-flow-card:hover {
+            transform: none;
+            box-shadow: none;
+            background: none;
+            border-color: var(--border);
+        }
+        .dv-flow-card h3 {
+            font-family: var(--ff-display);
+            font-size: 1.25rem; font-weight: 400;
+            letter-spacing: -.01em; margin: 0 0 6px;
+        }
+        .dv-flow-type {
+            font-size: .625rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .16em;
+            color: var(--gradient-1); margin-bottom: 16px;
+        }
+        [data-theme="dark"] .dv-flow-type { color: var(--gradient-1); }
+        .dv-flow-step {
+            font-size: .6875rem; color: var(--fg-2);
+            background: none; padding: 5px 12px;
+            border-radius: 100px; border: 1px solid var(--border);
+        }
+
+        .dv-landing-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 24px;
+        }
+        .dv-landing-card {
+            padding: 28px 24px;
+            border-radius: 0; border: none;
+            background: var(--bg);
+            transition: background-color .35s;
+        }
+        .cs-section-alt .dv-landing-card { background: var(--bg-2); }
+        .dv-landing-card:hover {
+            transform: none; box-shadow: none;
+            background: var(--surface);
+        }
+        .dv-landing-eyebrow {
+            font-size: .625rem; letter-spacing: .16em;
+            color: var(--gradient-1); margin-bottom: 10px;
+        }
+        [data-theme="dark"] .dv-landing-eyebrow { color: var(--gradient-1); }
+        .dv-landing-card h3 {
+            font-family: var(--ff-display);
+            font-size: 1.2rem; font-weight: 400;
+            letter-spacing: -.01em; margin: 0 0 10px;
+        }
+        .dv-landing-card p { font-size: .8125rem; line-height: 1.75; }
+
+        .dv-table th.cs-table-highlight {
+            background: transparent !important;
+            color: var(--gradient-1) !important;
+            border-bottom: 1px solid var(--gradient-1) !important;
+        }
+        [data-theme="dark"] .dv-table th.cs-table-highlight {
+            background: transparent !important;
+            color: var(--gradient-1) !important;
+            border-bottom: 1px solid var(--gradient-1) !important;
+        }
+        .dv-table td.cs-table-highlight,
+        [data-theme="dark"] .dv-table td.cs-table-highlight {
+            background: transparent !important;
+        }
+        /* Keep the DocVault column on its own blue - var(--glow) is the
+           site accent and was painting these circles orange */
+        .dv-table .cs-table-highlight .cell-status.yes {
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: #2563EB;
+            border-radius: 50%;
+            box-shadow: none;
+        }
+        [data-theme="dark"] .dv-table .cs-table-highlight .cell-status.yes {
+            background: rgba(96, 165, 250, 0.15);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            color: #60A5FA;
+        }
+
+        /* 16:10 viewport crops - wider than the old 380px so the UI stays legible */
+        .dv-hero-device img {
+            width: clamp(300px, 38vw, 520px);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            box-shadow: 0 30px 70px -25px rgba(0,0,0,.7);
+        }
+        @media (max-width: 768px) {
+            .dv-hero-device img { width: clamp(240px, 44vw, 320px); }
+        }
+
+        @media (max-width: 900px) {
+            .dv-flow-card, .dv-landing-grid, .dv-table-wrap { margin-left: 76px; }
+        }
+        @media (max-width: 768px) {
+            .dv-flow-card, .dv-landing-grid, .dv-table-wrap { margin-left: 0; }
+            .dv-hero-image-wrap { justify-content: center; }
+        }
+    </style>
+    <link rel="stylesheet" href="css/crayon.css?v=16">
+    <link rel="stylesheet" href="css/crayon-case.css">
+</head>
+<body>
+    <header class="nav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-logo" aria-label="Mohammed Jamal, home">
+                <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#ff4d8d" stroke="#191510" stroke-width="2.5"/><circle cx="14" cy="16" r="2.4" fill="#191510"/><circle cx="26" cy="16" r="2.4" fill="#191510"/><path d="M12.5 23.5c2 4 13 4 15 0" fill="none" stroke="#191510" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </a>
+            <ul class="nav-tabs">
+                <li><a href="index.html"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2 5.8 21l1.6-7L2 9.2l7.1-.6z"/></svg><span>Home</span></a></li>
+                <li><a href="index.html#about"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7.5" r="4.5"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg><span>About</span></a></li>
+                <li><a href="index.html#work" class="active"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg><span>Case Studies</span></a></li>
+                <li><a href="index.html#approach"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 22 12 12 22 2 12z"/></svg><span>Approach</span></a></li>
+                <li><a href="index.html#writing"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16zM16.5 3.5l4 4 1-1a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0z"/></svg><span>Writing</span></a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a class="social y" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+            <a class="social p" href="https://www.instagram.com/jamal_bikon/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+            <a class="social g" href="assets/MohammedJamal_Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg></a>
+            <a class="btn btn-paper nav-contact" href="#contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11"/></svg>Contact</a>
+            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span></button>
+        </div>
+    </header>
+    <div class="mob-menu" id="mobMenu">
+        <a href="index.html#about">About</a>
+        <a href="index.html#work">Case Studies</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#writing">Writing</a>
+        <a href="#contact">Contact</a>
+        <div class="mob-socials">
+            <a class="social y" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+            <a class="social p" href="https://www.instagram.com/jamal_bikon/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a class="social g" href="assets/MohammedJamal_Resume.pdf" target="_blank" rel="noopener" aria-label="Resume (PDF)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg></a>
+        </div>
+    </div>
+
+
+    <!-- Case Study Hero -->
+    <section class="cs-hero">
+        <div class="hero-mesh-bg"></div>
+        <div class="wrap">
+            <a href="index.html" class="cs-back rv">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to Home
+            </a>
+            <div class="cs-hero-tags rv">
+                <span>Real Product</span>
+                <span>SharePoint Designs</span>
+                <span>Solo Designer</span>
+            </div>
+            <h1 class="cs-hero-title rv">DocVault AI</h1>
+            <p class="cs-hero-subtitle rv">An AI-powered SharePoint Document Management System designed from scratch, end to end, from marketing landing page to full application UI.</p>
+            <div class="cs-hero-stats rv">
+                <div class="h-stat">
+                    <span class="h-stat-num">1-3</span>
+                    <span class="h-stat-label">Months to deliver</span>
+                </div>
+                <div class="h-stat">
+                    <span class="h-stat-num">2</span>
+                    <span class="h-stat-label">Products designed</span>
+                </div>
+                <div class="h-stat">
+                    <span class="h-stat-num">4</span>
+                    <span class="h-stat-label">User segments</span>
+                </div>
+                <div class="h-stat">
+                    <span class="h-stat-num">6</span>
+                    <span class="h-stat-label">Core pillars</span>
+                </div>
+            </div>
+
+            <!-- Hero Device Showcase -->
+            <div class="dv-hero-image-wrap rv">
+                <div class="dv-hero-device left">
+                    <img src="assets/docvault/docvault_hero_1.png" alt="DocVault AI dashboard, blue hero treatment">
+                </div>
+                <div class="dv-hero-device right">
+                    <img src="assets/docvault/docvault_hero_2.png" alt="DocVault AI dashboard, dark hero treatment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01 Project Overview -->
+    <section class="cs-section">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">01</span>
+                <h2 class="sec-title">Project Overview</h2>
+            </div>
+            <p class="cs-body rv">DocVault AI is a SharePoint-native document management system built by SharePoint Designs to solve enterprise document chaos. I was the sole designer responsible for the entire product - from the marketing landing page and all its sections to the full application UI inside SharePoint. Designed everything from scratch over 1-3 months.</p>
+            <div class="cs-meta-grid rv">
+                <div class="cs-meta-card">
+                    <span class="cs-meta-label">Role</span>
+                    <span class="cs-meta-value">Solo UI/UX Designer (End to End)</span>
+                </div>
+                <div class="cs-meta-card">
+                    <span class="cs-meta-label">Timeline</span>
+                    <span class="cs-meta-value">1-3 Months · Full Product</span>
+                </div>
+                <div class="cs-meta-card">
+                    <span class="cs-meta-label">Product Type</span>
+                    <span class="cs-meta-value">SaaS Web App + Landing Page</span>
+                </div>
+                <div class="cs-meta-card">
+                    <span class="cs-meta-label">Tools</span>
+                    <span class="cs-meta-value">Figma · Webflow · SharePoint</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 Problem Statement -->
+    <section class="cs-section cs-section-alt">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">02</span>
+                <h2 class="sec-title">Problem Statement</h2>
+            </div>
+            <p class="cs-body rv">Enterprise teams using Microsoft SharePoint struggle with document chaos - files scattered across folders, no version control, compliance nightmares, and hours wasted searching for the right document.</p>
+            <div class="cs-problems rv">
+                <div class="cs-problem-card">
+                    <div class="cs-problem-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <h3>Document Discovery is Broken</h3>
+                    <p>Employees spend 2+ hours per week searching for documents. SharePoint's native search is powerful but not intuitive for everyday users.</p>
+                </div>
+                <div class="cs-problem-card">
+                    <div class="cs-problem-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Compliance is a Constant Risk</h3>
+                    <p>Without version control, audit trails, and permission management, every document is a potential compliance violation waiting to happen.</p>
+                </div>
+                <div class="cs-problem-card">
+                    <div class="cs-problem-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <h3>No Unified System</h3>
+                    <p>Teams use SharePoint, email attachments, and personal drives. No single source of truth - leading to duplicate files and outdated versions.</p>
+                </div>
+                <div class="cs-problem-card">
+                    <div class="cs-problem-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                    <h3>Existing Tools Don't Fit</h3>
+                    <p>Google Drive and Dropbox lack enterprise compliance. M-Files is expensive and lives outside Microsoft 365. Companies need something native and affordable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 Target Users -->
+    <section class="cs-section">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">03</span>
+                <h2 class="sec-title">Target Users</h2>
+            </div>
+            <p class="cs-body rv">DocVault was designed for four distinct user types within an enterprise organisation. Each has different needs, pain points, and success metrics.</p>
+            <div class="cs-persona-grid rv">
+                <!-- Card 1 - Business Users (light) -->
+                <div class="cs-persona-card">
+                    <div class="cs-persona-header">
+                        <div class="cs-persona-avatar">BU</div>
+                        <div>
+                            <h3>Business Users</h3>
+                            <span>Day-to-day employees</span>
+                        </div>
+                    </div>
+                    <div class="cs-persona-detail">
+                        <p>Day-to-day employees who need to find and use documents quickly without any technical knowledge.</p>
+                    </div>
+                    <div class="cs-persona-row">
+                        <div class="persona-goal">
+                            <span class="persona-goal-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                Goal
+                            </span>
+                            <p>Find and use documents quickly without technical knowledge.</p>
+                        </div>
+                        <div class="persona-pain">
+                            <span class="persona-pain-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                Pain Point
+                            </span>
+                            <p>Hours wasted searching, no clear folder structure, always on the wrong version.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 - Compliance Managers (dark) -->
+                <div class="cs-persona-card cs-persona-dark">
+                    <div class="cs-persona-header">
+                        <div class="cs-persona-avatar">CM</div>
+                        <div>
+                            <h3>Compliance Managers</h3>
+                            <span>Regulatory & Legal Teams</span>
+                        </div>
+                    </div>
+                    <div class="cs-persona-detail">
+                        <p>Responsible for ensuring the organisation meets regulatory requirements across every document action.</p>
+                    </div>
+                    <div class="cs-persona-row">
+                        <div class="persona-goal">
+                            <span class="persona-goal-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                Goal
+                            </span>
+                            <p>Full audit trail, version control, permission management at a glance.</p>
+                        </div>
+                        <div class="persona-pain">
+                            <span class="persona-pain-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                Pain Point
+                            </span>
+                            <p>No visibility into who accessed what, manual compliance reporting, constant risk exposure.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 - IT Managers (light) -->
+                <div class="cs-persona-card">
+                    <div class="cs-persona-header">
+                        <div class="cs-persona-avatar">IT</div>
+                        <div>
+                            <h3>IT Managers</h3>
+                            <span>System Deployment & Maintenance</span>
+                        </div>
+                    </div>
+                    <div class="cs-persona-detail">
+                        <p>Responsible for deploying and maintaining enterprise tools within the existing Microsoft ecosystem.</p>
+                    </div>
+                    <div class="cs-persona-row">
+                        <div class="persona-goal">
+                            <span class="persona-goal-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                Goal
+                            </span>
+                            <p>Easy deployment within Microsoft 365, no extra infrastructure.</p>
+                        </div>
+                        <div class="persona-pain">
+                            <span class="persona-pain-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                Pain Point
+                            </span>
+                            <p>Complex enterprise tools require separate systems outside Microsoft ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 - Employees (dark) -->
+                <div class="cs-persona-card cs-persona-dark">
+                    <div class="cs-persona-header">
+                        <div class="cs-persona-avatar">EM</div>
+                        <div>
+                            <h3>Employees</h3>
+                            <span>General Staff · All Departments</span>
+                        </div>
+                    </div>
+                    <div class="cs-persona-detail">
+                        <p>General staff across all departments who interact with shared documents daily but aren't power users.</p>
+                    </div>
+                    <div class="cs-persona-row">
+                        <div class="persona-goal">
+                            <span class="persona-goal-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                Goal
+                            </span>
+                            <p>Access team documents quickly without understanding the folder structure deeply.</p>
+                        </div>
+                        <div class="persona-pain">
+                            <span class="persona-pain-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                Pain Point
+                            </span>
+                            <p>Can never find the right version, don't know who to ask, end up emailing colleagues for files that should be in SharePoint.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 Competitive Analysis -->
+    <section class="cs-section cs-section-alt">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">04</span>
+                <h2 class="sec-title">Competitive Analysis</h2>
+            </div>
+            <p class="cs-body rv">Before designing DocVault, I mapped what existing tools offered and where they failed enterprise SharePoint users.</p>
+            <div class="cs-table-wrap rv">
+                <table class="cs-table dv-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Google Drive</th>
+                            <th>Dropbox</th>
+                            <th>M-Files</th>
+                            <th class="cs-table-highlight">DocVault AI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SharePoint native</td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>AI-powered search</td>
+                            <td><div class="cell-status partial">~</div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Full audit trail</td>
+                            <td><div class="cell-status partial">~</div></td>
+                            <td><div class="cell-status partial">~</div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Version control</td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Permission management</td>
+                            <td><div class="cell-status partial">~</div></td>
+                            <td><div class="cell-status partial">~</div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Compliance reporting</td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft 365 native</td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>Affordable pricing</td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                        <tr>
+                            <td>No extra infrastructure</td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                            <td><div class="cell-status no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></td>
+                            <td class="cs-table-highlight"><div class="cell-status yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 Design Challenges -->
+    <section class="cs-section">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">05</span>
+                <h2 class="sec-title">Key Design Challenges</h2>
+            </div>
+            <p class="cs-body rv">Designing DocVault presented 3 unique challenges that shaped every decision.</p>
+            <div class="cs-problems rv">
+                <div class="cs-problem-card">
+                    <div class="cs-problem-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Making Compliance Feel Simple</h3>
+                    <p>Compliance features are complex - audit trails, permissions, version history. The challenge was presenting this in a UI that feels clean, not overwhelming. Solution: progressive disclosure - simple view first, advanced controls only when needed.</p>
+                </div>
+                <div class="cs-problem-card">
+                    <div class="cs-problem-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Designing for 4 Different Users</h3>
+                    <p>Business users, compliance managers, IT managers, and everyday employees all have completely different mental models and daily workflows. One UI had to serve all four without confusing any of them. Solution: role-based dashboard views and contextual navigation that surfaces the right tools and information for each user type. Employees see documents relevant to their team, managers see compliance alerts, IT sees system health.</p>
+                </div>
+                <div class="cs-problem-card">
+                    <div class="cs-problem-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3>Landing Page That Converts</h3>
+                    <p>The landing page needed to explain a complex enterprise product clearly enough to drive sign-ups. Enterprise buyers are skeptical. Solution: lead with the pain point, follow with social proof, end with simple pricing. No jargon above the fold.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06 Six Pillars -->
+    <section class="cs-section cs-section-alt">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">06</span>
+                <h2 class="sec-title">Six Pillars - One Coherent System</h2>
+            </div>
+            <p class="cs-body rv">DocVault is built around 6 core pillars. Each pillar maps to a specific user pain point.</p>
+            <div class="cs-features rv">
+                <div class="cs-feature">
+                    <span class="cs-feature-num">01</span>
+                    <div>
+                        <h3>Document Repository</h3>
+                        <p>Centralised storage with intelligent folder structure, drag-and-drop upload, and bulk operations.</p>
+                    </div>
+                </div>
+                <div class="cs-feature">
+                    <span class="cs-feature-num">02</span>
+                    <div>
+                        <h3>Version Control</h3>
+                        <p>Every document change tracked automatically. One-click rollback to any previous version.</p>
+                    </div>
+                </div>
+                <div class="cs-feature">
+                    <span class="cs-feature-num">03</span>
+                    <div>
+                        <h3>Permission Management</h3>
+                        <p>Role-based access control. Set permissions at folder or document level with full audit logging.</p>
+                    </div>
+                </div>
+                <div class="cs-feature">
+                    <span class="cs-feature-num">04</span>
+                    <div>
+                        <h3>Workflow Automation</h3>
+                        <p>Automated approval flows, document routing, and notification triggers without any code.</p>
+                    </div>
+                </div>
+                <div class="cs-feature">
+                    <span class="cs-feature-num">05</span>
+                    <div>
+                        <h3>Compliance Tracking</h3>
+                        <p>Real-time audit trail. Every view, edit, download, and share logged with timestamp and user identity.</p>
+                    </div>
+                </div>
+                <div class="cs-feature">
+                    <span class="cs-feature-num">06</span>
+                    <div>
+                        <h3>AI Search & Discovery</h3>
+                        <p>Natural language search across all documents. Find anything in seconds, not hours of browsing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 User Flows -->
+    <section class="cs-section">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">07</span>
+                <h2 class="sec-title">User Flows Designed</h2>
+            </div>
+            <p class="cs-body rv">I mapped 3 primary user flows before designing any screens. These became the backbone of the entire application architecture.</p>
+            <div class="rv">
+                <div class="dv-flow-card">
+                    <h3>Document Upload & Organisation</h3>
+                    <span class="dv-flow-type">User type: Business User</span>
+                    <div class="dv-flow-steps">
+                        <span class="dv-flow-step">Login via SharePoint</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Navigate to target folder</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Drag and drop or bulk upload</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Add metadata and tags</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Set permission level</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">AI indexes document</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Version 1.0 created</span>
+                    </div>
+                </div>
+                <div class="dv-flow-card">
+                    <h3>Compliance Audit</h3>
+                    <span class="dv-flow-type">User type: Compliance Manager</span>
+                    <div class="dv-flow-steps">
+                        <span class="dv-flow-step">Access Compliance Dashboard</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Select document to audit</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">View full activity timeline</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Filter by user, action, date</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Export audit report</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Flag suspicious activity</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Send report to stakeholders</span>
+                    </div>
+                </div>
+                <div class="dv-flow-card">
+                    <h3>Document Approval</h3>
+                    <span class="dv-flow-type">User type: Business User + Manager</span>
+                    <div class="dv-flow-steps">
+                        <span class="dv-flow-step">Submit for approval</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Manager receives notification</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Review with comments</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Approve / Reject / Request changes</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">User notified</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Version locked</span>
+                        <span class="dv-flow-arrow">&rarr;</span>
+                        <span class="dv-flow-step">Audit trail updated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08 Landing Page Design -->
+    <section class="cs-section cs-section-alt">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">08</span>
+                <h2 class="sec-title">Landing Page Design</h2>
+            </div>
+            <p class="cs-body rv">The DocVault landing page had one job - convert enterprise decision makers into trial sign-ups. I structured it around a clear persuasion hierarchy.</p>
+            <div class="dv-landing-grid rv">
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">Lead with the pain point not the product</span>
+                    <h3>Hero Section</h3>
+                    <p>"Your company's documents, finally under control." - Speaks directly to the frustration before introducing the solution.</p>
+                </div>
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">Three users, three benefits</span>
+                    <h3>Value Proposition Strip</h3>
+                    <p>Immediately addressed all three user types so every visitor sees themselves in the product.</p>
+                </div>
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">Show how documents actually move</span>
+                    <h3>Feature Deep Dive</h3>
+                    <p>Demonstrated real workflows with annotated UI screenshots rather than generic feature lists. Enterprise buyers need to see the product working.</p>
+                </div>
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">One system, coherent message</span>
+                    <h3>Six Pillars Section</h3>
+                    <p>Positioned DocVault as a complete system rather than a collection of features. Each pillar maps to a specific pain point.</p>
+                </div>
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">Built for compliance anxiety</span>
+                    <h3>Audit Ready CTA</h3>
+                    <p>A dedicated section addressing compliance directly - the biggest fear of enterprise compliance managers.</p>
+                </div>
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">Why not just Drive or Dropbox?</span>
+                    <h3>Competitive Table</h3>
+                    <p>Directly answered the objection every buyer has. Side by side comparison with real data, not marketing claims.</p>
+                </div>
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">Customer testimonials and trust badges</span>
+                    <h3>Social Proof</h3>
+                    <p>G2, Capterra, and Gartner badges with real customer quotes. Enterprise buyers buy on trust, not features.</p>
+                </div>
+                <div class="dv-landing-card">
+                    <span class="dv-landing-eyebrow">One product, one price</span>
+                    <h3>Pricing</h3>
+                    <p>Simple monthly and one-time options. Removed pricing anxiety with a clear, no-surprise structure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 09 Design Decisions -->
+    <section class="cs-section cs-section-alt">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">09</span>
+                <h2 class="sec-title">Key Design Decisions</h2>
+            </div>
+            <p class="cs-body rv">These decisions were intentional and grounded in user behaviour and enterprise UX principles.</p>
+            <div class="cs-decisions rv">
+                <div class="cs-decision">
+                    <div class="cs-decision-arrow">01</div>
+                    <div>
+                        <h3>Microsoft Fluent Design Language</h3>
+                        <p>DocVault lives inside SharePoint so it had to feel native. I followed Microsoft Fluent design tokens while layering DocVault's brand identity on top. Users feel at home from day one.</p>
+                    </div>
+                </div>
+                <div class="cs-decision">
+                    <div class="cs-decision-arrow">02</div>
+                    <div>
+                        <h3>Progressive Disclosure for Compliance</h3>
+                        <p>Compliance features are complex. Showing everything at once overwhelms users. Simple view by default, advanced controls one click away.</p>
+                    </div>
+                </div>
+                <div class="cs-decision">
+                    <div class="cs-decision-arrow">03</div>
+                    <div>
+                        <h3>Role-Based Dashboard Views</h3>
+                        <p>Three different users, three different dashboards. Business users see recent documents. Compliance managers see audit alerts. IT managers see system health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10 Future Scope -->
+    <section class="cs-section">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">10</span>
+                <h2 class="sec-title">Future Scope</h2>
+            </div>
+            <p class="cs-body rv">With a growing user base, these next-phase features would deepen DocVault's product value and expand into new market segments.</p>
+            <div class="cs-future-grid rv">
+                <div class="cs-future-card accent-blue">
+                    <div class="future-card-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <h3>AI Contract Analysis</h3>
+                    <p>Automatically extract key clauses, dates, and parties from contracts. Flag risk areas and expiring agreements.</p>
+                </div>
+                <div class="cs-future-card accent-blue">
+                    <div class="future-card-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Multi-Tenant Support</h3>
+                    <p>Allow firms to manage documents for multiple client organisations from one DocVault instance.</p>
+                </div>
+                <div class="cs-future-card accent-blue">
+                    <div class="future-card-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <h3>Mobile App</h3>
+                    <p>Native iOS and Android companion for document approvals and notifications. Full offline access to pinned docs.</p>
+                </div>
+                <div class="cs-future-card accent-blue">
+                    <div class="future-card-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>DocVault Analytics</h3>
+                    <p>Document usage analytics - most accessed files, storage trends, user activity patterns, compliance risk scoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11 Reflection -->
+    <section class="cs-section cs-section-alt">
+        <div class="wrap">
+            <div class="cs-section-head rv">
+                <span class="sec-label">11</span>
+                <h2 class="sec-title">Reflection</h2>
+            </div>
+            <p class="cs-body rv">DocVault was my most complex design challenge to date - a real product, real stakeholders, real business goals.</p>
+            <div class="cs-learnings rv">
+                <div class="cs-learning">
+                    <span class="cs-learning-icon">✦</span>
+                    <div>
+                        <h3>Designing for enterprise is designing for behaviour change</h3>
+                        <p>Enterprise users have deeply ingrained habits. DocVault had to feel familiar enough to adopt immediately but powerful enough to replace existing chaos.</p>
+                    </div>
+                </div>
+                <div class="cs-learning">
+                    <span class="cs-learning-icon">✦</span>
+                    <div>
+                        <h3>The landing page is a product, not a brochure</h3>
+                        <p>I treated the landing page as a conversion product with a clear user journey, objection handling, and CTAs at every scroll depth.</p>
+                    </div>
+                </div>
+                <div class="cs-learning">
+                    <span class="cs-learning-icon">✦</span>
+                    <div>
+                        <h3>Three users means three success metrics</h3>
+                        <p>Business users measure time-to-find. Compliance managers measure coverage. IT managers measure deployment time. I should have defined these upfront.</p>
+                    </div>
+                </div>
+                <div class="cs-learning">
+                    <span class="cs-learning-icon">✦</span>
+                    <div>
+                        <h3>What I'd do differently</h3>
+                        <p>I'd run at least 3 user interviews per user type before finalising the IA. Enterprise users have specific workflows that are hard to guess from the outside.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sec contact" id="contact">
+        <a href="index.html#work" class="cs-back" style="margin-bottom:56px">← More case studies</a>
+        <div class="wrap">
+            <svg class="smiley" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#f7c948" stroke="#191510" stroke-width="3"/><rect x="38" y="38" width="9" height="20" rx="4.5" fill="#191510"/><rect x="73" y="38" width="9" height="20" rx="4.5" fill="#191510"/><circle cx="32" cy="72" r="8" fill="#ff8fb4" opacity=".7"/><circle cx="88" cy="72" r="8" fill="#ff8fb4" opacity=".7"/><path d="M36 74c8 18 40 18 48 0" fill="none" stroke="#191510" stroke-width="4.5" stroke-linecap="round"/></svg>
+            <h2 class="pixel">Let's talk</h2>
+            <p class="lead hand">Hiring for something complex? Tell me what your team is trying to fix. I read every message.</p>
+
+            <div class="contact-stage">
+                <div class="me-card rv">
+                    <span class="tape tc pink"></span>
+                    <div class="who"><img src="assets/profile.jpg" alt="" width="36" height="36">Mohammed Jamal</div>
+                    <p>Looking for a full-time product or enterprise design role, especially one with the messy, unglamorous problems in it.</p>
+                </div>
+                <div class="big-card">
+                    <span class="tape tl"></span><span class="tape tr"></span>
+                    <p class="hand">let's make something clear together</p>
+                    <p class="pixel" aria-hidden="true">Contact</p>
+                    <a class="email" href="mailto:jamaluiux04@gmail.com">jamaluiux04@gmail.com</a>
+                    <div class="actions">
+                        <a class="btn btn-ink" href="mailto:jamaluiux04@gmail.com">Drop a line ↗</a>
+                        <a class="btn btn-paper" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener">LinkedIn</a>
+                        <a class="btn btn-paper" href="assets/MohammedJamal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cs-back-bottom rv">
+        <a href="index.html" class="cs-back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to Home
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-name pixel">Mohammed Jamal</div>
+                    <div class="footer-role mono">UI/UX Designer · Chennai</div>
+                </div>
+                <div class="footer-links">
+                    <div class="mono footer-nav">
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#work">Case Studies</a>
+                        <a href="index.html#writing">Writing</a>
+                    </div>
+                    <div class="socials">
+                        <a class="social y" href="https://www.linkedin.com/in/mohammed-jamal-217b0b106" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+                        <a class="social p" href="https://www.instagram.com/jamal_bikon/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+                        <a class="social g" href="mailto:jamaluiux04@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Mohammed Jamal</span>
+                <span class="made">designed &amp; built by hand ✦</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/crayon.js?v=16"></script>
+
+</body>
+</html>

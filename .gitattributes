@@ -1,0 +1,11 @@
+# Keep binaries out of git's line-ending conversion. core.autocrlf is on
+# here, and without this a fresh clone rewrites bytes inside these files.
+*.pdf binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.svg text
+*.mp4 binary
+*.woff binary
+*.woff2 binary

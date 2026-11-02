@@ -1,0 +1,167 @@
+/* ========================================
+   Case studies on Crayon paper.
+   Loads after styles.css + case-study.css + crayon.css
+   and maps the old editorial tokens onto the scrapbook.
+   ======================================== */
+html[data-theme] {
+    --bg: #fdfdfb;
+    --bg-2: #f7f1e3;
+    --surface: #ffffff;
+    --surface-hover: #ffffff;
+    --fg: #191510;
+    --fg-2: #4a443b;
+    --fg-3: #6b6356;
+    --border: rgba(25, 21, 16, .14);
+    --border-strong: #191510;
+    --border-hover: #191510;
+    --accent: #2b57d6;
+    --accent-soft: rgba(43, 87, 214, .1);
+    --accent-line: rgba(43, 87, 214, .45);
+    --pill-bg: #fff;
+    --pill-border: #191510;
+    --card-hover-border: #191510;
+    --card-hover-shadow: 6px 6px 0 #191510;
+    --ff-display: 'Inter', system-ui, sans-serif;
+    --fw-display: 600;
+}
+html[data-theme] body { background-color: var(--paper); }
+
+/* Old nav chrome is gone; the Crayon header is sticky, not fixed */
+.cs-hero { padding: 64px 0 88px; border-bottom: 2px solid var(--ink); }
+.cs-hero::before, .cs-hero .hero-mesh-bg { display: none; }
+
+.cs-back {
+    font-family: var(--ff-mono); letter-spacing: .12em; color: var(--ink);
+    padding: 7px 14px; background: #fff;
+    border: 2px solid var(--ink); border-radius: 6px; box-shadow: 3px 3px 0 var(--ink);
+}
+.cs-back:hover { color: var(--ink); background: var(--yellow); }
+
+.cs-hero-tags { gap: 10px; }
+.cs-hero-tags span,
+.cs-hero-tags span:first-child {
+    padding: 4px 12px;
+    font-family: var(--ff-mono); color: var(--ink);
+    border: 1.5px solid var(--ink); border-radius: 999px;
+    background: #fff;
+}
+.cs-hero-tags span:nth-child(1) { background: var(--yellow); }
+.cs-hero-tags span:nth-child(2) { background: var(--mint); }
+.cs-hero-tags span:nth-child(3) { background: var(--pink-soft); }
+
+.cs-hero-title {
+    font-family: var(--ff-pixel) !important;
+    font-weight: 700; text-transform: uppercase;
+    font-size: clamp(4rem, 13vw, 10rem);
+    line-height: .88; letter-spacing: .01em;
+    color: var(--ink) !important;
+    text-shadow: 5px 5px 0 var(--gradient-1);
+}
+.cs-hero-subtitle { font-family: var(--ff-hand); font-weight: 400; font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.3; letter-spacing: 0; }
+
+/* Hero stats become sticky notes */
+.cs-hero-stats { gap: 22px; border-top: 0; }
+.h-stat, .h-stat:not(:first-child) {
+    position: relative;
+    padding: 22px 18px 18px;
+    border-right: 0;
+    background: var(--yellow-soft);
+    box-shadow: 0 10px 18px -12px rgba(25, 21, 16, .45);
+}
+.h-stat:nth-child(1) { transform: rotate(-2deg); }
+.h-stat:nth-child(2) { background: var(--pink-soft); transform: rotate(1.5deg); }
+.h-stat:nth-child(3) { background: var(--mint); transform: rotate(-1deg); }
+.h-stat:nth-child(4) { background: var(--cyan); transform: rotate(2deg); }
+.h-stat:hover { background: var(--yellow-soft); transform: rotate(0); }
+.h-stat::before {
+    content: ""; position: absolute; top: -11px; left: 50%;
+    width: 70px; height: 20px; transform: translateX(-50%) rotate(-3deg);
+    background: rgba(255, 255, 255, .6); box-shadow: 0 1px 2px rgba(25, 21, 16, .12);
+}
+.h-stat-num { font-family: var(--ff-pixel); font-weight: 700; color: var(--ink); }
+.h-stat-label { color: var(--ink-2); font-size: .82rem; }
+
+/* Sections */
+.cs-section-alt { background: transparent; }
+.cs-section-alt .wrap {
+    position: relative;
+}
+.cs-section + .cs-section-alt, .cs-section-alt + .cs-section { border-top: 2px dashed rgba(25, 21, 16, .18); }
+.cs-section-head { border-top: 0; }
+.sec-label {
+    display: inline-block;
+    padding: 4px 12px;
+    font-family: var(--ff-mono); color: var(--ink);
+    background: var(--yellow);
+    border: 1.5px solid var(--ink); border-radius: 4px;
+    transform: rotate(-1.5deg);
+}
+.sec-title { letter-spacing: -.03em; }
+.serif-em { font-family: var(--ff-hand); font-style: normal; font-weight: 400; color: var(--blue); }
+
+/* Every card is a piece of paper with an ink outline */
+.cs-meta-card, .cs-problem-card, .cs-feature, .cs-process-card, .cs-idea-card,
+.cs-persona-card, .cs-future-card, .cs-learning, .cs-decision, .screen-item,
+.cs-section-alt .cs-problem-card, .cs-section-alt .cs-idea-card, .cs-section-alt .cs-future-card {
+    background: #fff;
+    border: 2px solid var(--ink) !important;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.cs-meta-card:hover, .cs-problem-card:hover, .cs-feature:hover, .cs-process-card:hover, .cs-idea-card:hover,
+.cs-persona-card:hover, .cs-future-card:hover, .cs-learning:hover, .cs-decision:hover, .screen-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--ink);
+}
+.cs-persona-dark, [data-theme="light"] .cs-persona-dark { background: var(--ink) !important; color: var(--paper); }
+.cs-feature-num, .cs-process-num { font-family: var(--ff-pixel); font-weight: 700; }
+
+table { border-collapse: separate; border-spacing: 0; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; background: #fff; }
+
+/* Big images get washi tape */
+.hero-device, .cs-body figure, .screen-item.has-image { position: relative; }
+.cs-hero-image-wrap .hero-device::before {
+    content: ""; position: absolute; top: -12px; left: 50%; z-index: 3;
+    width: 92px; height: 26px; transform: translateX(-50%) rotate(-4deg);
+    background: rgba(183, 198, 239, .8);
+    box-shadow: 0 1px 2px rgba(25, 21, 16, .12);
+}
+
+/* Contact block reuses the homepage's big card */
+.contact::before { display: none; }
+.contact.sec { padding: 112px 0 72px; overflow-x: clip; overflow-y: visible; }
+
+/* Footer link row (div, not nav: styles.css fixes every <nav>) */
+.footer-links .footer-nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer-links .footer-nav a { text-decoration: none; }
+.footer-links .footer-nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+footer.footer { border-top: 0; }
+
+@media (max-width: 860px) {
+    .cs-hero { padding-top: 40px; }
+    .cs-hero-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .cs-hero-stats { grid-template-columns: 1fr; }
+    .cs-hero-title { text-shadow: 3px 3px 0 var(--gradient-1); }
+}
+
+/* Undo styles.css burger + full-screen mobile menu */
+.burger { height: auto; position: static; }
+.burger span { position: static; left: auto; width: 22px; height: 2px; }
+.mob-menu { inset: auto; top: var(--nav-h); left: 0; right: 0; padding: 0; opacity: 1; pointer-events: auto; transition: none; }
+.mob-menu a { border-bottom: 0; }
+.mob-menu a:hover { color: var(--ink); padding-left: var(--pad); background: var(--yellow-soft); }
+
+/* Fixes from the visual pass */
+.cs-section-head .sec-label, .sec-label { color: var(--ink) !important; justify-self: start; align-self: start; }
+.cs-meta-card, .cs-meta-card:not(:first-child) { padding: 16px 18px; }
+.cs-meta-grid { gap: 16px; border-top: 0; }
+.cs-feature-num, .cs-process-num { font-family: var(--ff-mono); font-weight: 500; letter-spacing: 0; }
+.cs-process-card, .cs-process-card:not(:first-child), .cs-feature, .cs-decision, .cs-learning, .cs-persona-card { padding: 26px 24px; }
+.cs-process-grid, .cs-idea-grid, .cs-problems, .cs-features, .cs-future-grid, .cs-learnings, .cs-decisions, .cs-persona-grid, .screens-grid {
+    gap: 22px !important; border-top: 0 !important;
+}
+.cs-feature { grid-template-columns: 96px 1fr; }
+@media (max-width: 560px) { .cs-feature { grid-template-columns: 1fr; } }

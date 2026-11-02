@@ -1,0 +1,32 @@
+<svg viewBox="-40 0 240 200" width="240" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Base Background Track -->
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#E5E7EB" stroke-width="28"/>
+    <!-- Yes 40% -->
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#2D6A4F" stroke-width="28"
+        stroke-dasharray="175.9 439.8" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+    <!-- Maybe 50% -->
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#F59E0B" stroke-width="28"
+        stroke-dasharray="219.9 439.8" stroke-dashoffset="-175.9" transform="rotate(-90 100 100)"/>
+    <!-- No 10% -->
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#9CA3AF" stroke-width="28"
+        stroke-dasharray="44.0 439.8" stroke-dashoffset="-395.8" transform="rotate(-90 100 100)"/>
+
+    <!-- Yes label (top right) -->
+    <line x1="135" y1="52" x2="160" y2="40" stroke="#999" stroke-width="0.8"/>
+    <text x="164" y="38" fill="#2D6A4F" font-size="11" font-weight="700" text-anchor="start">40%</text>
+    <text x="164" y="50" font-size="9" fill="#666" text-anchor="start">Yes</text>
+
+    <!-- Maybe label (left side) -->
+    <line x1="32" y1="115" x2="15" y2="125" stroke="#999" stroke-width="0.8"/>
+    <text x="12" y="138" fill="#F59E0B" font-size="11" font-weight="700" text-anchor="middle">50%</text>
+    <text x="12" y="150" font-size="9" fill="#666" text-anchor="middle">Maybe</text>
+
+    <!-- No label (top left) -->
+    <line x1="82" y1="36" x2="62" y2="20" stroke="#999" stroke-width="0.8"/>
+    <text x="58" y="17" fill="#9CA3AF" font-size="11" font-weight="700" text-anchor="end">10%</text>
+    <text x="58" y="29" font-size="9" fill="#666" text-anchor="end">No</text>
+
+    <!-- Center text -->
+    <text x="100" y="96" text-anchor="middle" font-size="10" font-weight="500" fill="#999">AI Meal</text>
+    <text x="100" y="112" text-anchor="middle" font-size="10" font-weight="500" fill="#999">Recs?</text>
+</svg>

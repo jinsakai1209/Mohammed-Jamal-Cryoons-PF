@@ -1,0 +1,16 @@
+# Agent tooling - local only, never publish to the live site
+.agents/
+skills-lock.json
+.claude/
+.codex/
+.impeccable/config.local.json
+.impeccable/live/
+
+# Local scratch / preview files
+_t_*.html
+_hero_*.html
+_f_*.html
+
+# Placeholder hero media (replace with the real render, then un-ignore)
+assets/_placeholder_hero.*
+.impeccable/hook.cache.json
