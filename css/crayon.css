@@ -785,6 +785,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero-go [data-in="up"] { animation: in-up .6s var(--ease) var(--d) both; }
 .hero-go [data-in="pop"] { animation: in-pop .55s var(--ease) var(--d) both; }
 .hero-go [data-in="rise"] { animation: in-rise .55s var(--ease) var(--d) both; }
+.hero-go .spin-icon[data-in="rise"] { animation: in-rise .55s var(--ease) var(--d) both, spin 9s linear infinite; }
 .hero-go [data-in="drop-sm"] { animation: in-drop-sm .7s var(--ease) var(--d) both; }
 .hero-go [data-in="drop-md"] { animation: in-drop-md .7s var(--ease) var(--d) both; }
 .hero-go [data-in="drop-lg"] { animation: in-drop-lg .7s var(--ease) var(--d) both; }
