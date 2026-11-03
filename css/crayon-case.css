@@ -39,7 +39,7 @@ html[data-theme] body { background-color: var(--paper); }
     border-bottom: 2px solid var(--ink); padding-bottom: 3px;
 }
 .cs-crumb:hover { background: var(--yellow); }
-.cs-top-grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
+.cs-top-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
 .cs-eyebrow {
     display: inline-flex; align-items: center; gap: 12px;
     font-family: var(--ff-mono); font-weight: 500; font-size: .875rem;
@@ -57,9 +57,11 @@ html[data-theme] body { background-color: var(--paper); }
     clip-path: polygon(0 28%, 12% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-/* Taped, torn fact notes */
+/* Taped, torn fact notes, as in the reference hero */
 .torn { clip-path: var(--torn-a); background: var(--cyan); }
 .cs-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; width: 32rem; padding-top: 32px; filter: drop-shadow(2px 4px 5px rgba(17, 18, 18, .16)); }
+/* Facts sit under the Project Overview paragraph, in the text column */
+.cs-facts.in-overview { width: auto; max-width: 48rem; margin: 8px 0 0; padding-top: 0; gap: 26px 28px; }
 .cs-fact { position: relative; }
 .cs-fact .torn { padding: 20px 24px; height: 100%; }
 .cs-fact:nth-child(1) { rotate: -2deg; }
@@ -78,7 +80,7 @@ html[data-theme] body { background-color: var(--paper); }
 .cs-fact-k { font-family: var(--ff-mono); font-weight: 500; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; }
 .cs-fact-v { margin-top: 4px; color: var(--ink-2); }
 
-/* Hero numbers: torn result notes */
+/* Headline numbers: torn result notes */
 .cs-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 56px; filter: drop-shadow(2px 4px 5px rgba(17, 18, 18, .14)); }
 .cs-stat { padding: 20px; }
 .cs-stat:nth-child(1) { rotate: -2deg; }
@@ -113,70 +115,101 @@ html[data-theme] body { background-color: var(--paper); }
 .cs-section-alt .wrap { position: relative; }
 .cs-section-head {
     display: flex; align-items: baseline; gap: 14px;
-    max-width: 48rem; margin: 0 auto 24px; padding: 0; border: 0;
+    max-width: 48rem; margin: 0 0 24px; padding: 0; border: 0;
 }
 .cs-num { font-family: var(--ff-mono); font-weight: 500; font-size: .85rem; letter-spacing: .1em; color: var(--ink-3); }
 .cs-label { font-family: var(--ff-hand); font-weight: 400; font-size: clamp(2rem, 3.6vw, 2.6rem); line-height: 1.1; letter-spacing: 0; text-transform: lowercase; color: var(--ink); }
-.cs-subhead { max-width: 48rem; margin: 56px auto 22px; }
+.cs-subhead { max-width: 48rem; margin: 56px 0 22px; }
 .cs-sub-k {
     display: inline-block; padding: 3px 10px;
     font-family: var(--ff-mono); font-weight: 500; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
     background: var(--yellow);
 }
 .cs-sub-t { margin-top: 10px; font-size: 1.3rem; font-weight: 600; letter-spacing: -.01em; }
-.cs-body { max-width: 48rem; margin: 0 auto 40px; font-size: 1.125rem; line-height: 1.75; color: var(--ink-2); }
+.cs-body { max-width: 48rem; margin: 0 0 40px; font-size: 1.125rem; line-height: 1.75; color: var(--ink-2); }
 .serif-em { font-family: var(--ff-hand); font-style: normal; font-weight: 400; color: var(--blue); }
 
-/* Every card is a torn, tilted note in a rotating colour */
+/* Cards read as plain text on the ruled paper: bold heading, soft paragraph, no box */
 .cs-problems, .cs-idea-grid, .cs-decisions, .cs-learnings, .cs-future-grid, .cs-features,
-.cs-process-grid, .cs-persona-grid, .cs-meta-grid, .dv-landing-grid, .cs-quotes, .dv-flow-cards {
-    gap: 26px !important; border: 0 !important;
+.cs-process-grid, .cs-persona-grid, .cs-meta-grid, .dv-landing-grid, .cs-quotes {
+    gap: 40px 48px !important; border: 0 !important;
     background: transparent !important;
-    filter: drop-shadow(2px 4px 5px rgba(17, 18, 18, .16));
 }
-/* Full-width rows tilt less, or the long edges wobble too much */
-:is(.cs-features, .cs-decisions, .cs-learnings) > *:nth-child(n) { rotate: -.4deg; }
-:is(.cs-features, .cs-decisions, .cs-learnings) > *:nth-child(even) { rotate: .4deg; }
-:is(.cs-problem-card, .cs-idea-card, .cs-feature, .cs-process-card, .cs-future-card, .cs-learning, .cs-decision, .cs-persona-card:not(.cs-persona-dark), .dv-flow-card, .dv-landing-card) :is(p, li) { color: var(--ink-2); }
-:is(.cs-problem-card, .cs-idea-card, .cs-feature, .cs-process-card, .cs-future-card, .cs-learning, .cs-decision, .cs-persona-card:not(.cs-persona-dark), .dv-flow-card, .dv-landing-card) h3 { color: var(--ink); }
 .cs-meta-card, .cs-problem-card, .cs-feature, .cs-process-card, .cs-idea-card,
 .cs-persona-card, .cs-future-card, .cs-learning, .cs-decision, .dv-flow-card, .dv-landing-card,
 .cs-section-alt .cs-problem-card, .cs-section-alt .cs-idea-card, .cs-section-alt .cs-future-card,
-.cs-meta-card:not(:first-child), .cs-process-card:not(:first-child) {
-    padding: 26px 24px;
-    background: var(--cyan);
+.cs-meta-card:not(:first-child), .cs-process-card:not(:first-child),
+.cs-persona-dark, [data-theme="light"] .cs-persona-dark {
+    padding: 0 !important;
+    background: transparent !important;
     border: 0 !important; border-radius: 0;
-    box-shadow: none;
-    clip-path: var(--torn-a);
-    rotate: -1deg;
-    transition: rotate .3s var(--ease), translate .3s var(--ease);
+    box-shadow: none !important;
+    color: var(--ink);
 }
-:is(.cs-meta-card, .cs-problem-card, .cs-feature, .cs-process-card, .cs-idea-card, .cs-persona-card, .cs-future-card, .cs-learning, .cs-decision, .dv-flow-card, .dv-landing-card):nth-child(4n+2) { background: var(--yellow-soft); clip-path: var(--torn-b); rotate: 1.2deg; }
-:is(.cs-meta-card, .cs-problem-card, .cs-feature, .cs-process-card, .cs-idea-card, .cs-persona-card, .cs-future-card, .cs-learning, .cs-decision, .dv-flow-card, .dv-landing-card):nth-child(4n+3) { background: var(--purple); clip-path: var(--torn-c); rotate: .6deg; }
-:is(.cs-meta-card, .cs-problem-card, .cs-feature, .cs-process-card, .cs-idea-card, .cs-persona-card, .cs-future-card, .cs-learning, .cs-decision, .dv-flow-card, .dv-landing-card):nth-child(4n+4) { background: var(--pink-soft); rotate: -.8deg; }
-:is(.cs-meta-card, .cs-problem-card, .cs-feature, .cs-process-card, .cs-idea-card, .cs-persona-card, .cs-future-card, .cs-learning, .cs-decision, .dv-flow-card, .dv-landing-card):hover { rotate: 0deg; translate: 0 -4px; transform: none; box-shadow: none; }
-.cs-persona-dark, [data-theme="light"] .cs-persona-dark, .cs-persona-card.cs-persona-dark:nth-child(n) { background: var(--ink) !important; color: var(--paper); }
-.cs-persona-dark :is(h3, p, span) { color: var(--paper) !important; }
+:is(.cs-meta-card, .cs-problem-card, .cs-feature, .cs-process-card, .cs-idea-card, .cs-persona-card, .cs-future-card, .cs-learning, .cs-decision, .dv-flow-card, .dv-landing-card):hover { transform: none; box-shadow: none; background: transparent; }
+:is(.cs-problem-card, .cs-idea-card, .cs-feature, .cs-process-card, .cs-future-card, .cs-learning, .cs-decision, .cs-persona-card, .dv-flow-card, .dv-landing-card) h3 { color: var(--ink) !important; font-weight: 600; }
+:is(.cs-problem-card, .cs-idea-card, .cs-feature, .cs-process-card, .cs-future-card, .cs-learning, .cs-decision, .cs-persona-card, .dv-flow-card, .dv-landing-card) :is(p, li, span:not([class*="title"])) { color: var(--ink-2) !important; line-height: 1.7; }
 .cs-problem-icon, .cs-learning-icon, .future-card-icon {
-    background: rgba(255, 255, 255, .7) !important; color: var(--ink) !important;
-    border: 0 !important; border-radius: 50% !important;
+    background: transparent !important; color: var(--ink) !important;
+    border: 0 !important; padding: 0 !important; width: auto !important; height: auto !important;
 }
-.cs-meta-label { font-family: var(--ff-mono); font-weight: 500; letter-spacing: .12em; color: var(--ink); }
+.cs-persona-avatar { background: var(--ink) !important; color: var(--paper) !important; }
+/* case-study.css paints the dark persona's text light with long !important selectors */
+html[data-theme] .cs-persona-card.cs-persona-dark :is(.cs-persona-header span, .cs-persona-detail p, .persona-goal p, .persona-pain p, .persona-goal-title, .persona-pain-title) { color: var(--ink-2) !important; }
+html[data-theme] .cs-persona-card.cs-persona-dark .cs-persona-header h3 { color: var(--ink) !important; }
+.cs-persona-dark :is(.cs-persona-detail, .persona-goal, .persona-pain) { background: transparent !important; border-color: rgba(25, 21, 16, .15) !important; }
+.cs-meta-label { font-family: var(--ff-mono); font-weight: 500; letter-spacing: .12em; color: var(--ink-3); }
 .cs-meta-value { color: var(--ink); }
 .cs-feature { grid-template-columns: 96px 1fr; }
 .cs-feature-num, .cs-process-num { font-family: var(--ff-mono); font-weight: 500; letter-spacing: 0; color: var(--ink) !important; }
-.cs-feature-bar { background: rgba(255, 255, 255, .6); }
+.cs-feature-bar { background: rgba(25, 21, 16, .1); }
 .cs-feature-bar-fill { background: var(--ink); }
+.dv-flow-card { padding-bottom: 8px !important; }
 
-/* Quotes sit on a yellow torn note with the attribution in hand lettering */
+/* Paper notes only where they carry a number, a person or a quote */
+.cs-meta-grid, .cs-persona-grid { gap: 22px 26px !important; filter: drop-shadow(2px 4px 5px rgba(17, 18, 18, .16)); }
+html[data-theme] .cs-meta-card, html[data-theme] .cs-meta-card:not(:first-child) {
+    padding: 20px 22px !important; background: var(--cyan) !important; clip-path: var(--torn-a); rotate: -1.5deg;
+}
+html[data-theme] .cs-meta-card:nth-child(4n+2) { background: var(--yellow-soft) !important; clip-path: var(--torn-b); rotate: 1.5deg; }
+html[data-theme] .cs-meta-card:nth-child(4n+3) { background: var(--purple) !important; clip-path: var(--torn-c); rotate: .8deg; }
+html[data-theme] .cs-meta-card:nth-child(4n+4) { background: var(--pink-soft) !important; rotate: -.8deg; }
+html[data-theme] .cs-persona-card, html[data-theme] .cs-persona-card.cs-persona-dark {
+    padding: 30px 28px !important; background: var(--cyan) !important; clip-path: var(--torn-a); rotate: -.8deg;
+}
+html[data-theme] .cs-persona-card:nth-child(even) { background: var(--yellow-soft) !important; clip-path: var(--torn-b); rotate: .8deg; }
+
+/* Problem cards: torn notes in rotating colours, icon in a white dot */
+.cs-problems { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; max-width: 60rem; margin-inline: 0; gap: 30px 34px !important; filter: drop-shadow(2px 4px 5px rgba(17, 18, 18, .16)); }
+@media (max-width: 640px) { .cs-problems { grid-template-columns: 1fr !important; } }
+html[data-theme] .cs-problem-card, html[data-theme] .cs-section-alt .cs-problem-card {
+    padding: 28px 26px !important; background: var(--cyan) !important; clip-path: var(--torn-a); rotate: -1.2deg;
+    transition: rotate .3s var(--ease), translate .3s var(--ease);
+}
+html[data-theme] .cs-problem-card:nth-child(4n+2) { background: var(--yellow-soft) !important; clip-path: var(--torn-b); rotate: 1.2deg; }
+html[data-theme] .cs-problem-card:nth-child(4n+3) { background: var(--purple) !important; clip-path: var(--torn-c); rotate: .7deg; }
+html[data-theme] .cs-problem-card:nth-child(4n+4) { background: var(--pink-soft) !important; rotate: -.7deg; }
+html[data-theme] .cs-problem-card:hover { rotate: 0deg; translate: 0 -4px; }
+html[data-theme] .cs-problem-card .cs-problem-icon {
+    display: grid; place-items: center; place-content: center !important; width: 40px !important; height: 40px !important;
+    background: rgba(255, 255, 255, .75) !important; border-radius: 50% !important;
+}
+
 .cs-quote {
-    max-width: 48rem; margin-inline: auto;
+    max-width: 48rem; margin-inline: 0;
     padding: 28px 32px; border: 0 !important; border-radius: 0;
     background: var(--yellow-soft); clip-path: var(--torn-b);
 }
 .cs-quote p { font-size: 1.2rem; line-height: 1.6; color: var(--ink); font-style: normal; }
 .cs-quote cite { font-family: var(--ff-hand); font-size: 1.4rem; font-style: normal; letter-spacing: 0; text-transform: none; color: var(--ink-2); }
 .cs-quotes .cs-quote:nth-child(even) { background: var(--cyan); clip-path: var(--torn-a); }
+/* Several quotes stand side by side as tall notes instead of a long stack */
+.cs-quotes { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 28px !important; filter: drop-shadow(2px 4px 5px rgba(17, 18, 18, .16)); }
+.cs-quotes .cs-quote { max-width: none; margin: 0; padding: 30px 26px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; rotate: -1deg; }
+.cs-quotes .cs-quote:nth-child(2) { rotate: 1.2deg; }
+.cs-quotes .cs-quote:nth-child(3n) { background: var(--purple); clip-path: var(--torn-c); rotate: -.6deg; }
+.cs-quotes .cs-quote p { font-size: 1.08rem; }
+@media (max-width: 860px) { .cs-quotes { grid-template-columns: 1fr; } }
 
 /* Pictures get a thick ink frame and two strips of tape */
 .screen-item { position: relative; background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; }
@@ -238,3 +271,10 @@ footer.footer { border-top: 0; }
     .cs-feature { grid-template-columns: 1fr; }
     .cs-chips span { font-size: .85rem; }
 }
+
+/* One left edge for everything: drop the old 116px number-column indent */
+html[data-theme] :is(.cs-body, .cs-meta-grid, .cs-problems, .cs-idea-grid, .cs-process-grid, .cs-future-grid,
+.cs-persona-grid, .cs-features, .cs-decisions, .cs-learnings, .cs-quotes, .cs-table-wrap, .cs-testing-photos,
+.nd-donut-wrap, .nd-timeline, .dv-flow-card, .dv-landing-grid, .dv-table-wrap, .screens-grid) { margin-left: 0 !important; }
+html[data-theme] .cs-table :is(th, td):first-child { padding-left: 20px; }
+html[data-theme] .cs-table th { background: var(--chrome) !important; }
