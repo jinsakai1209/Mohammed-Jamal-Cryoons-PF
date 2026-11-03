@@ -367,7 +367,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .about-grid { display: grid; grid-template-columns: 250px 1fr 270px; gap: 56px; align-items: center; }
 .about .polaroid.p-left { transform: rotate(-5deg); }
 .about .polaroid.p-right { transform: rotate(4deg); }
-.about-copy { text-align: center; }
 .boxed-title {
     display: inline-block;
     padding: 4px 18px;
@@ -377,8 +376,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     box-shadow: 3px 3px 0 var(--ink);
     margin-bottom: 26px;
 }
-.about-copy .hand { font-size: clamp(1.45rem, 2.4vw, 1.95rem); color: var(--ink); }
-.about-copy .hand + .hand { margin-top: 18px; }
+/* About copy matches the hero sub-line: Inter, centred, soft ink */
+.about-copy { max-width: 36rem; margin-inline: auto; text-align: center; }
+.about-copy .pull { font-size: clamp(1.3rem, 2vw, 1.55rem); font-weight: 600; line-height: 1.4; letter-spacing: -.01em; color: var(--ink); }
+.about-copy .body { margin-top: 18px; font-size: 1.06rem; line-height: 1.7; color: var(--ink-2); }
+.about-copy .pull + .body { margin-top: 22px; }
 .hl { background: linear-gradient(transparent 55%, var(--yellow) 55% 90%, transparent 90%); padding: 0 2px; }
 .hl.pink { background: linear-gradient(transparent 55%, var(--pink-soft) 55% 90%, transparent 90%); }
 .hl.mint { background: linear-gradient(transparent 55%, var(--mint) 55% 90%, transparent 90%); }
@@ -718,3 +720,59 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .marquee-track span { font-family: var(--ff-mono); font-weight: 500; font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
 .marquee-track .star { color: var(--yellow); }
 @keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ========================================
+   Case studies index
+   ======================================== */
+.cs-index { padding-top: 72px; }
+.cs-kicker { font-size: 1.6rem; }
+.cs-title { margin-top: 8px; font-size: clamp(4.5rem, 14vw, 12rem); }
+.cs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px 40px; margin-top: 64px; }
+
+/* Folder card: chrome tab + panel that go ink on hover */
+.cs-card { display: block; text-decoration: none; color: var(--ink); }
+.cs-tab {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 22px 112px 22px 34px;
+    font-family: var(--ff-mono); font-weight: 500; font-size: .95rem;
+    letter-spacing: .2em; text-transform: uppercase;
+    background: var(--chrome);
+    clip-path: polygon(0 0, calc(100% - 76px) 0, 100% 100%, 0 100%);
+    transition: background-color .7s ease-in-out, color .7s ease-in-out;
+}
+.cs-tab .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--ink); transition: background-color .7s ease-in-out; }
+.cs-frame { position: relative; display: block; padding: 20px; background: var(--chrome); transition: background-color .7s ease-in-out; }
+.cs-img { display: block; aspect-ratio: 16 / 9; overflow: hidden; }
+.cs-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.cs-text { display: block; padding-top: 28px; text-align: center; }
+.cs-name { display: block; font-size: clamp(1.9rem, 3vw, 2.25rem); font-weight: 600; letter-spacing: -.02em; }
+.cs-line { display: block; max-width: 28rem; margin: 12px auto 0; color: var(--ink-2); line-height: 1.6; }
+.cs-card:hover .cs-tab, .cs-card:focus-visible .cs-tab { background: var(--ink); color: #fff; }
+.cs-card:hover .cs-tab .dot, .cs-card:focus-visible .cs-tab .dot { background: #fff; }
+.cs-card:hover .cs-frame, .cs-card:focus-visible .cs-frame { background: var(--ink); }
+.cs-card:hover .cs-img img { transform: scale(1.05); }
+
+/* Round "See" lens that inverts whatever image sits under it */
+.see-lens {
+    position: absolute; z-index: 2;
+    left: var(--nx, 50%); top: var(--ny, 50%);
+    display: none; place-items: center;
+    width: 112px; height: 112px; border-radius: 50%;
+    translate: -50% -50%; scale: .5; opacity: 0;
+    -webkit-backdrop-filter: invert(1); backdrop-filter: invert(1);
+    font-family: var(--ff-mono); font-weight: 500; font-size: .875rem;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--ink);
+    pointer-events: none;
+    transition: opacity .3s var(--ease), scale .3s var(--ease);
+}
+@media (hover: hover) and (min-width: 1024px) {
+    .see-lens { display: grid; }
+    .cs-card:hover .see-lens { opacity: 1; scale: 1; }
+}
+@media (max-width: 860px) {
+    .cs-grid { grid-template-columns: 1fr; gap: 64px; }
+}
+@media (max-width: 560px) {
+    .cs-tab { padding: 16px 84px 16px 22px; font-size: .78rem; clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 100%, 0 100%); }
+    .cs-frame { padding: 12px; }
+}

@@ -59,10 +59,10 @@
         window.addEventListener('scroll', spy, { passive: true });
         spy();
     }
-    // Negative lens follows the pointer inside its zone
+    // Negative lenses follow the pointer inside their zone
     if (!reduced) {
-        document.querySelectorAll('.neg-zone').forEach(zone => {
-            const lens = zone.querySelector('.negative');
+        document.querySelectorAll('.neg-zone, .cs-frame').forEach(zone => {
+            const lens = zone.querySelector('.negative, .see-lens');
             if (!lens) return;
             zone.addEventListener('pointermove', e => {
                 const r = zone.getBoundingClientRect();
