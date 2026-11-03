@@ -155,7 +155,7 @@ html[data-theme] body { background-color: var(--paper); }
 }
 .cs-persona-avatar { background: var(--ink) !important; color: var(--paper) !important; }
 /* case-study.css paints the dark persona's text light with long !important selectors */
-html[data-theme] .cs-persona-card.cs-persona-dark :is(.cs-persona-header span, .cs-persona-detail p, .persona-goal p, .persona-pain p, .persona-goal-title, .persona-pain-title) { color: var(--ink-2) !important; }
+html[data-theme] .cs-persona-card.cs-persona-dark :is(.cs-persona-header span, .cs-persona-detail p, .persona-goal p, .persona-pain p, .persona-goal-title, .persona-pain-title) { color: var(--ink) !important; }
 html[data-theme] .cs-persona-card.cs-persona-dark .cs-persona-header h3 { color: var(--ink) !important; }
 .cs-persona-dark :is(.cs-persona-detail, .persona-goal, .persona-pain) { background: transparent !important; border-color: rgba(25, 21, 16, .15) !important; }
 .cs-meta-label { font-family: var(--ff-mono); font-weight: 500; letter-spacing: .12em; color: var(--ink-3); }
@@ -278,3 +278,184 @@ html[data-theme] :is(.cs-body, .cs-meta-grid, .cs-problems, .cs-idea-grid, .cs-p
 .nd-donut-wrap, .nd-timeline, .dv-flow-card, .dv-landing-grid, .dv-table-wrap, .screens-grid) { margin-left: 0 !important; }
 html[data-theme] .cs-table :is(th, td):first-child { padding-left: 20px; }
 html[data-theme] .cs-table th { background: var(--chrome) !important; }
+
+/* Number notes: dark ink on the pastel paper (beats the inline green in the page) */
+html[data-theme] .cs-meta-card .cs-meta-label { color: var(--ink) !important; opacity: 1; }
+html[data-theme] .cs-meta-card .cs-meta-value { color: var(--ink) !important; font-weight: 700; letter-spacing: -.02em; }
+
+/* Feature preference bars read as meters: thick track, ink outline, coloured fill */
+html[data-theme] .cs-feature-bar {
+    height: 18px; margin: 12px 0 14px;
+    background: var(--chrome) !important;
+    border: 2px solid var(--ink); border-radius: 0; overflow: hidden;
+}
+html[data-theme] .cs-feature-bar-fill { height: 100%; background: var(--yellow) !important; border-right: 2px solid var(--ink); border-radius: 0; }
+html[data-theme] .cs-feature:nth-child(4n+2) .cs-feature-bar-fill { background: var(--cyan) !important; }
+html[data-theme] .cs-feature:nth-child(4n+3) .cs-feature-bar-fill { background: var(--purple) !important; }
+html[data-theme] .cs-feature:nth-child(4n+4) .cs-feature-bar-fill { background: var(--pink-soft) !important; }
+html[data-theme] .cs-feature-num { font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 500; }
+
+/* Persona notes: all text in ink so it reads on blue and yellow paper */
+html[data-theme] .cs-persona-card :is(.persona-goal-title, .persona-pain-title) { color: var(--ink) !important; }
+html[data-theme] .cs-persona-card :is(.persona-goal-title, .persona-pain-title) svg { stroke: var(--ink); }
+html[data-theme] .cs-persona-card :is(.cs-persona-detail p, .persona-goal p, .persona-pain p, .cs-persona-header span) { color: var(--ink) !important; opacity: 1; }
+html[data-theme] .cs-persona-card .cs-persona-detail { border-color: rgba(25, 21, 16, .35) !important; }
+html[data-theme] .cs-persona-card .cs-persona-header { border-color: rgba(25, 21, 16, .2) !important; }
+
+/* ---------- Sprint timeline: pastel stops on a dashed ink line ---------- */
+html[data-theme] .nd-timeline { margin: 48px 0 40px !important; padding: 10px 0 6px; }
+html[data-theme] .nd-timeline-node:not(:last-child)::after { top: 22px; left: calc(50% + 26px); width: calc(100% - 52px); border-top: 2px dashed var(--ink); }
+html[data-theme] .nd-timeline-circle {
+    width: 44px; height: 44px;
+    font-family: var(--ff-mono); font-size: 1rem; font-weight: 500; color: var(--ink);
+    background: var(--yellow) !important; border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+html[data-theme] .nd-timeline-node:nth-child(2) .nd-timeline-circle { background: var(--pink-soft) !important; }
+html[data-theme] .nd-timeline-node:nth-child(3) .nd-timeline-circle { background: var(--cyan) !important; }
+html[data-theme] .nd-timeline-node:nth-child(4) .nd-timeline-circle { background: var(--mint) !important; }
+html[data-theme] .nd-timeline-node:nth-child(5) .nd-timeline-circle { background: var(--purple) !important; }
+html[data-theme] .nd-timeline-node:nth-child(6) .nd-timeline-circle { background: var(--yellow-soft) !important; }
+html[data-theme] .nd-timeline-label { font-family: var(--ff-mono); font-weight: 500; font-size: .72rem; color: var(--ink); }
+
+/* ---------- Day / process steps: lined index cards, like the homepage Writing cards ---------- */
+html[data-theme] .cs-process-grid { gap: 30px 28px !important; }
+html[data-theme] .cs-process-card, html[data-theme] .cs-process-card:not(:first-child) {
+    padding: 22px 24px 26px !important;
+    background-color: #fff !important;
+    background-image: linear-gradient(to bottom, transparent 50px, rgba(255, 77, 141, .45) 50px 52px, transparent 52px),
+        repeating-linear-gradient(to bottom, transparent 0 27px, rgba(43, 87, 214, .14) 27px 28px) !important;
+    background-position: 0 0, 0 52px !important;
+    box-shadow: 0 14px 24px -16px rgba(25, 21, 16, .5) !important;
+    rotate: -1deg;
+    transition: rotate .3s var(--ease), translate .3s var(--ease);
+}
+html[data-theme] .cs-process-card:nth-child(even) { rotate: 1deg; }
+html[data-theme] .cs-process-card:nth-child(3n) { rotate: -.4deg; }
+html[data-theme] .cs-process-card:hover { rotate: 0deg; translate: 0 -6px; }
+html[data-theme] .cs-process-card .cs-process-num { display: block; font-size: .78rem !important; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3) !important; }
+html[data-theme] .cs-process-card h3 { margin: 26px 0 8px; font-size: 1.3rem; }
+html[data-theme] .cs-process-card p { font-size: .95rem; line-height: 1.75; }
+
+/* ---------- Ideation: taped sticky notes, like the homepage "Four moves" ---------- */
+html[data-theme] .cs-idea-grid { gap: 34px 28px !important; padding-top: 14px; }
+html[data-theme] .cs-idea-card, html[data-theme] .cs-section-alt .cs-idea-card {
+    position: relative;
+    padding: 30px 24px 26px !important;
+    background: var(--yellow) !important;
+    box-shadow: 0 14px 22px -14px rgba(25, 21, 16, .45) !important;
+    rotate: -2deg;
+    transition: rotate .3s var(--ease), translate .3s var(--ease);
+}
+html[data-theme] .cs-idea-card::before {
+    content: ""; position: absolute; top: -13px; left: 50%; translate: -50% 0; rotate: -3deg;
+    width: 86px; height: 24px;
+    background: rgba(255, 255, 255, .6); box-shadow: 0 1px 2px rgba(25, 21, 16, .12);
+}
+html[data-theme] .cs-idea-card:nth-child(4n+2) { background: var(--pink-soft) !important; rotate: 1.6deg; }
+html[data-theme] .cs-idea-card:nth-child(4n+3) { background: var(--mint) !important; rotate: -1deg; }
+html[data-theme] .cs-idea-card:nth-child(4n+4) { background: var(--cyan) !important; rotate: 2deg; }
+html[data-theme] .cs-idea-card:hover { rotate: 0deg; translate: 0 -6px; }
+html[data-theme] .cs-idea-card h3 { font-family: var(--ff-hand); font-weight: 400 !important; font-size: 1.9rem; line-height: 1.05; letter-spacing: 0; color: var(--ink) !important; margin-bottom: 14px; }
+html[data-theme] .cs-idea-card li { color: var(--ink) !important; font-size: .95rem; line-height: 1.5; }
+html[data-theme] .cs-idea-card li::before { background: var(--ink) !important; color: var(--ink) !important; }
+/* Four steps sit in one row instead of three plus an orphan */
+html[data-theme] .cs-process-grid:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+@media (max-width: 860px) { html[data-theme] .cs-process-grid:has(> :nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@media (max-width: 560px) { html[data-theme] .cs-process-grid:has(> :nth-child(4):last-child) { grid-template-columns: 1fr !important; } }
+
+/* ---------- DocVault: six pillars as labelled boxes in one system ---------- */
+html[data-theme] .cs-features.dv-pillars { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px !important; }
+html[data-theme] .dv-pillars .cs-feature, html[data-theme] .dv-pillars .cs-feature:nth-child(n) {
+    display: flex !important; flex-direction: column; padding: 0 !important; rotate: 0deg;
+    background: #fff !important; border: 2px solid var(--ink) !important;
+    box-shadow: 5px 5px 0 var(--ink) !important;
+    transition: translate .2s var(--ease), box-shadow .2s var(--ease);
+}
+html[data-theme] .dv-pillars .cs-feature:hover { translate: -2px -2px; box-shadow: 7px 7px 0 var(--ink) !important; }
+html[data-theme] .dv-pillars .cs-feature-num {
+    display: block; padding: 12px 20px 8px;
+    font-family: var(--ff-pixel) !important; font-weight: 700; font-size: 2.6rem !important; line-height: 1;
+    background: var(--yellow); border-bottom: 2px solid var(--ink);
+}
+html[data-theme] .dv-pillars .cs-feature:nth-child(2) .cs-feature-num { background: var(--cyan); }
+html[data-theme] .dv-pillars .cs-feature:nth-child(3) .cs-feature-num { background: var(--pink-soft); }
+html[data-theme] .dv-pillars .cs-feature:nth-child(4) .cs-feature-num { background: var(--mint); }
+html[data-theme] .dv-pillars .cs-feature:nth-child(5) .cs-feature-num { background: var(--purple); }
+html[data-theme] .dv-pillars .cs-feature:nth-child(6) .cs-feature-num { background: var(--yellow-soft); }
+html[data-theme] .dv-pillars .cs-feature > div { padding: 18px 20px 22px; }
+html[data-theme] .dv-pillars .cs-feature h3 { font-size: 1.15rem; margin-bottom: 8px; }
+html[data-theme] .dv-pillars .cs-feature p { font-size: .95rem; color: var(--ink-2) !important; }
+
+/* ---------- DocVault: user flows as numbered tickets on a card ---------- */
+html[data-theme] .dv-flow-card, html[data-theme] .dv-flow-card:nth-child(n) {
+    counter-reset: step;
+    margin: 0 0 30px !important; padding: 26px 28px 28px !important; rotate: 0deg;
+    background: #fff !important; border: 2px solid var(--ink) !important;
+    box-shadow: 5px 5px 0 var(--ink) !important; clip-path: none;
+}
+html[data-theme] .dv-flow-card:hover { translate: none; }
+html[data-theme] .dv-flow-card h3 { display: inline; margin-right: 12px; font-size: 1.3rem; }
+html[data-theme] .dv-flow-type {
+    display: inline-block; vertical-align: 3px; padding: 3px 10px;
+    font-family: var(--ff-mono); font-weight: 500; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink) !important; background: var(--yellow);
+}
+html[data-theme] .dv-flow-card:nth-child(2) .dv-flow-type { background: var(--cyan); }
+html[data-theme] .dv-flow-card:nth-child(3) .dv-flow-type { background: var(--pink-soft); }
+html[data-theme] .dv-flow-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 8px; margin-top: 20px; }
+html[data-theme] .dv-flow-step {
+    counter-increment: step;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 12px; border-radius: 0 !important;
+    font-size: .88rem; color: var(--ink) !important;
+    background: var(--chrome) !important; border: 1.5px solid var(--ink) !important;
+}
+html[data-theme] .dv-flow-step::before { content: counter(step, decimal-leading-zero); font-family: var(--ff-mono); font-weight: 500; font-size: .72rem; color: var(--ink-3); }
+/* The last step is the outcome the flow exists for */
+html[data-theme] .dv-flow-step:last-child { background: var(--mint) !important; font-weight: 600; box-shadow: 2px 2px 0 var(--ink); }
+html[data-theme] .dv-flow-arrow { color: var(--ink) !important; font-size: 1rem; font-weight: 700; }
+
+/* ---------- DocVault: landing page sections stacked in a browser frame, in page order ---------- */
+html[data-theme] .dv-landing-grid {
+    counter-reset: sec;
+    display: block !important; position: relative;
+    padding: 46px 0 0 !important;
+    background: #fff !important; border: 3px solid var(--ink) !important;
+    box-shadow: 8px 8px 0 var(--ink); filter: none;
+}
+html[data-theme] .dv-landing-grid::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 44px;
+    background: radial-gradient(circle, var(--pink) 0 6px, transparent 7px) 22px 50% / 14px 14px no-repeat,
+        radial-gradient(circle, var(--yellow) 0 6px, transparent 7px) 42px 50% / 14px 14px no-repeat,
+        radial-gradient(circle, var(--green) 0 6px, transparent 7px) 62px 50% / 14px 14px no-repeat,
+        var(--chrome);
+    border-bottom: 3px solid var(--ink);
+}
+html[data-theme] .dv-landing-card, html[data-theme] .dv-landing-card:nth-child(n) {
+    counter-increment: sec;
+    display: grid; grid-template-columns: 72px minmax(0, 1fr) minmax(0, 15rem); gap: 6px 28px; align-items: start;
+    padding: 24px 28px !important; rotate: 0deg; clip-path: none;
+    border-bottom: 2px dashed rgba(25, 21, 16, .2) !important; background: transparent !important;
+}
+html[data-theme] .dv-landing-card:nth-child(even) { background: rgba(236, 227, 209, .35) !important; }
+html[data-theme] .dv-landing-card:last-child { border-bottom: 0 !important; }
+html[data-theme] .dv-landing-card::before {
+    content: counter(sec, decimal-leading-zero); grid-row: 1 / span 2;
+    font-family: var(--ff-pixel); font-weight: 700; font-size: 2.6rem; line-height: .9; color: var(--ink);
+}
+html[data-theme] .dv-landing-card h3 { grid-column: 2; grid-row: 1; margin: 0; font-size: 1.2rem; }
+html[data-theme] .dv-landing-card p { grid-column: 2; grid-row: 2; margin: 0; font-size: .95rem; }
+html[data-theme] .dv-landing-eyebrow {
+    grid-column: 3; grid-row: 1 / span 2; align-self: center;
+    font-family: var(--ff-hand) !important; font-weight: 400 !important; font-size: 1.45rem !important;
+    line-height: 1.15; letter-spacing: 0 !important; text-transform: none !important; color: var(--blue) !important;
+}
+@media (max-width: 860px) {
+    html[data-theme] .cs-features.dv-pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    html[data-theme] .dv-landing-card, html[data-theme] .dv-landing-card:nth-child(n) { grid-template-columns: 56px minmax(0, 1fr); }
+    html[data-theme] .dv-landing-eyebrow { grid-column: 2; grid-row: auto; }
+}
+@media (max-width: 560px) {
+    html[data-theme] .cs-features.dv-pillars { grid-template-columns: 1fr; }
+}
