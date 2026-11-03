@@ -776,3 +776,26 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     .cs-tab { padding: 16px 84px 16px 22px; font-size: .78rem; clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 100%, 0 100%); }
     .cs-frame { padding: 12px; }
 }
+
+/* ========================================
+   Hero load-in (crayon.js tags pieces with data-in and a --d delay)
+   ======================================== */
+.hero-wait [data-in] { opacity: 0; }
+.hero-name .ch, .hero-line .w { display: inline-block; }
+.hero-go [data-in="up"] { animation: in-up .6s var(--ease) var(--d) both; }
+.hero-go [data-in="pop"] { animation: in-pop .55s var(--ease) var(--d) both; }
+.hero-go [data-in="rise"] { animation: in-rise .55s var(--ease) var(--d) both; }
+.hero-go [data-in="drop-sm"] { animation: in-drop-sm .7s var(--ease) var(--d) both; }
+.hero-go [data-in="drop-md"] { animation: in-drop-md .7s var(--ease) var(--d) both; }
+.hero-go [data-in="drop-lg"] { animation: in-drop-lg .7s var(--ease) var(--d) both; }
+/* Keep the idle motion going once each piece has landed */
+.hero-go .name-stage .s1[data-in] { animation: in-drop-sm .7s var(--ease) var(--d) both, bob 5s ease-in-out calc(var(--d) + .7s) infinite; }
+.hero-go .name-stage .s2[data-in] { animation: in-drop-sm-r .7s var(--ease) var(--d) both, bob 5s ease-in-out calc(var(--d) + .7s) infinite; }
+.hero-go .avatar[data-in] { animation: in-up .6s var(--ease) var(--d) both, float 6s ease-in-out calc(var(--d) + .6s) infinite; }
+@keyframes in-up { from { opacity: 0; translate: 0 28px; } to { opacity: 1; translate: 0 0; } }
+@keyframes in-pop { from { opacity: 0; scale: .55; } to { opacity: 1; scale: 1; } }
+@keyframes in-rise { from { opacity: 0; translate: 0 .6em; } to { opacity: 1; translate: 0 0; } }
+@keyframes in-drop-sm { from { opacity: 0; translate: 0 -28px; rotate: -6deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
+@keyframes in-drop-sm-r { from { opacity: 0; translate: 0 -28px; rotate: 6deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
+@keyframes in-drop-md { from { opacity: 0; translate: 0 -90px; rotate: -5deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
+@keyframes in-drop-lg { from { opacity: 0; translate: 0 -140px; rotate: -7deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
